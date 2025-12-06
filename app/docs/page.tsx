@@ -96,7 +96,7 @@ export default function DocsPage() {
           <SectionHeader
             className='!mb-0'
             subtitle='Documentation'
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title='Complete Guide to ACF Open Icons'
             description='Everything you need to know to get started with ACF Open Icons, from installation to advanced usage.'
           />
@@ -113,7 +113,7 @@ export default function DocsPage() {
             <div className='space-y-12'>
               {/* Requirements */}
               <div id='requirements' className='scroll-mt-24'>
-                <h2 className='text-2xl font-medium text-zinc-900 mb-6'>
+                <h2 className='text-xl font-medium text-zinc-900 mb-6'>
                   Requirements
                 </h2>
                 <Card>
@@ -134,7 +134,7 @@ export default function DocsPage() {
               <div id='installation' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
                   <Download className='h-6 w-6 text-blue-600' />
-                  <h2 className='text-2xl font-medium text-zinc-900'>
+                  <h2 className='text-xl font-medium text-zinc-900'>
                     Installation
                   </h2>
                 </div>
@@ -146,7 +146,7 @@ export default function DocsPage() {
                           <div className='flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-medium text-sm'>
                             {step.step}
                           </div>
-                          <CardTitle className='text-lg'>
+                          <CardTitle>
                             {step.title}
                           </CardTitle>
                         </div>
@@ -163,7 +163,7 @@ export default function DocsPage() {
               <div id='configuration' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
                   <Settings className='h-6 w-6 text-blue-600' />
-                  <h2 className='text-2xl font-medium text-zinc-900'>
+                  <h2 className='text-xl font-medium text-zinc-900'>
                     Configuration
                   </h2>
                 </div>
@@ -173,7 +173,7 @@ export default function DocsPage() {
                       <CardTitle>License Activation</CardTitle>
                     </CardHeader>
                     <CardContent className='space-y-4'>
-                      <ol className='list-decimal list-inside space-y-2 text-zinc-700'>
+                      <ol className='list-decimal list-outside space-y-2 text-zinc-700 pl-6'>
                         <li>
                           Navigate to Custom Fields &gt; ACF Open Icons in
                           WordPress admin
@@ -192,12 +192,12 @@ export default function DocsPage() {
                       <CardTitle>Icon Set Selection</CardTitle>
                     </CardHeader>
                     <CardContent className='space-y-4'>
-                      <ol className='list-decimal list-inside space-y-2 text-zinc-700'>
+                      <ol className='list-decimal list-outside space-y-2 text-zinc-700 pl-6'>
                         <li>Go to Custom Fields &gt; ACF Open Icons</li>
                         <li>
                           In the Icon Set section, select your preferred icon
                           library:
-                          <ul className='list-disc list-inside ml-4 mt-2 space-y-1'>
+                          <ul className='list-disc list-outside ml-6 mt-2 space-y-1'>
                             <li>
                               <strong>Lucide</strong> - Modern, consistent icon
                               set
@@ -229,7 +229,7 @@ export default function DocsPage() {
                       <p className='text-zinc-700'>
                         Configure color tokens that can be applied to icons:
                       </p>
-                      <ol className='list-decimal list-inside space-y-2 text-zinc-700'>
+                      <ol className='list-decimal list-outside space-y-2 text-zinc-700 pl-6'>
                         <li>
                           In the Palette section, set colors for tokens A, B,
                           and C
@@ -251,7 +251,7 @@ export default function DocsPage() {
               <div id='usage' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
                   <Code className='h-6 w-6 text-blue-600' />
-                  <h2 className='text-2xl font-medium text-zinc-900'>Usage</h2>
+                  <h2 className='text-xl font-medium text-zinc-900'>Usage</h2>
                 </div>
                 <div className='space-y-8'>
                   <Card>
@@ -259,7 +259,7 @@ export default function DocsPage() {
                       <CardTitle>Creating an ACF Field</CardTitle>
                     </CardHeader>
                     <CardContent className='space-y-4'>
-                      <ol className='list-decimal list-inside space-y-2 text-zinc-700'>
+                      <ol className='list-decimal list-outside space-y-2 text-zinc-700 pl-6'>
                         <li>Go to Custom Fields &gt; Field Groups</li>
                         <li>
                           Create a new field group or edit an existing one
@@ -290,14 +290,14 @@ export default function DocsPage() {
                       </p>
 
                       <div>
-                        <h3 className='text-lg font-medium text-zinc-900 mb-3'>
+                        <h3 className='text-base font-medium text-zinc-900 mb-3'>
                           Basic Usage
                         </h3>
                         <CodeBlock code={codeExamples.basic} language='php' />
                       </div>
 
                       <div>
-                        <h3 className='text-lg font-medium text-zinc-900 mb-3'>
+                        <h3 className='text-base font-medium text-zinc-900 mb-3'>
                           With Custom Size
                         </h3>
                         <CodeBlock
@@ -307,14 +307,14 @@ export default function DocsPage() {
                       </div>
 
                       <div>
-                        <h3 className='text-lg font-medium text-zinc-900 mb-3'>
+                        <h3 className='text-base font-medium text-zinc-900 mb-3'>
                           Return Instead of Echo
                         </h3>
                         <CodeBlock code={codeExamples.return} language='php' />
                       </div>
 
                       <div>
-                        <h3 className='text-lg font-medium text-zinc-900 mb-3'>
+                        <h3 className='text-base font-medium text-zinc-900 mb-3'>
                           With Color Override
                         </h3>
                         <CodeBlock
@@ -328,7 +328,7 @@ export default function DocsPage() {
                       </div>
 
                       <div>
-                        <h3 className='text-lg font-medium text-zinc-900 mb-3'>
+                        <h3 className='text-base font-medium text-zinc-900 mb-3'>
                           With CSS Classes
                         </h3>
                         <CodeBlock
@@ -363,7 +363,7 @@ export default function DocsPage() {
                             </code>{' '}
                             (array) - Optional attributes:
                           </h4>
-                          <ul className='list-disc list-inside space-y-1 text-zinc-700 ml-4'>
+                          <ul className='list-disc list-outside space-y-1 text-zinc-700 ml-6'>
                             <li>
                               <code className='rounded bg-zinc-100 px-1 py-0.5 text-xs font-mono text-zinc-900'>
                                 size
@@ -402,7 +402,7 @@ export default function DocsPage() {
               <div id='migration' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
                   <RefreshCw className='h-6 w-6 text-blue-600' />
-                  <h2 className='text-2xl font-medium text-zinc-900'>
+                  <h2 className='text-xl font-medium text-zinc-900'>
                     Icon Migration
                   </h2>
                 </div>
@@ -415,7 +415,7 @@ export default function DocsPage() {
                       When switching between icon providers, the plugin includes
                       a migration tool to help update existing icons:
                     </p>
-                    <ol className='list-decimal list-inside space-y-2 text-zinc-700'>
+                    <ol className='list-decimal list-outside space-y-2 text-zinc-700 pl-6'>
                       <li>Go to Custom Fields &gt; ACF Open Icons</li>
                       <li>Navigate to the Migration section</li>
                       <li>Review icons that need migration</li>
@@ -430,7 +430,7 @@ export default function DocsPage() {
 
               {/* Updates */}
               <div id='updates' className='scroll-mt-24'>
-                <h2 className='text-2xl font-medium text-zinc-900 mb-6'>
+                <h2 className='text-xl font-medium text-zinc-900 mb-6'>
                   Updates
                 </h2>
                 <Card>
@@ -438,7 +438,7 @@ export default function DocsPage() {
                     <p className='text-zinc-700'>
                       The plugin includes automatic update functionality:
                     </p>
-                    <ul className='list-disc list-inside space-y-2 text-zinc-700'>
+                    <ul className='list-disc list-outside space-y-2 text-zinc-700 pl-6'>
                       <li>Updates are checked daily via WordPress cron</li>
                       <li>Update notifications appear in the Plugins page</li>
                       <li>

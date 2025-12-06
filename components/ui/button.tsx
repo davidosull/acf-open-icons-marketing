@@ -20,10 +20,10 @@ const buttonVariants = cva(
           'bg-white text-zinc-900 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50',
       },
       size: {
-        default: 'h-8 px-4 py-2',
-        sm: 'h-7 rounded-md px-3',
-        lg: 'h-10 rounded-md px-5',
-        icon: 'h-8 w-8',
+        default: 'h-9 px-4 py-2',
+        sm: 'h-8 rounded-md px-3',
+        lg: 'h-11 rounded-md px-5',
+        icon: 'h-9 w-9',
       },
     },
     defaultVariants: {

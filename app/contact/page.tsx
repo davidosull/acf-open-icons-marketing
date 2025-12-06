@@ -88,7 +88,7 @@ export default function ContactPage() {
           <SectionHeader
             className='!mb-0'
             subtitle='Contact'
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title='Get in Touch'
             description="Have a question or need support? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
           />
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   <div className='p-2 bg-white rounded-lg'>
                     <Clock className='h-5 w-5 text-blue-600' />
                   </div>
-                  <CardTitle className='text-lg text-left'>
+                  <CardTitle className='text-left'>
                     Response Time
                   </CardTitle>
                 </div>

@@ -114,7 +114,7 @@ export default function RoadmapPage() {
           <SectionHeader
             className='!mb-0'
             subtitle='Roadmap'
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title="What's Coming Next"
             description="Our planned features and improvements. We're constantly working to make ACF Open Icons better based on your feedback."
           />

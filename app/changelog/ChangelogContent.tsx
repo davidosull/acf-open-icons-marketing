@@ -64,7 +64,7 @@ export function ChangelogContent({ entries }: ChangelogContentProps) {
           <CardHeader>
             <div className='flex flex-col gap-1 mb-4'>
               <span className='text-sm text-zinc-500'>{entry.date}</span>
-              <h2 className='text-2xl font-medium text-zinc-900'>
+              <h2 className='text-xl font-medium text-zinc-900'>
                 Version {entry.version}
               </h2>
             </div>
@@ -81,7 +81,7 @@ export function ChangelogContent({ entries }: ChangelogContentProps) {
                   </Badge>
                 </div>
                 {items.length > 0 ? (
-                  <ul className='list-disc space-y-2 pl-6 text-zinc-600'>
+                  <ul className='list-disc list-outside space-y-2 pl-6 text-zinc-600'>
                     {items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}

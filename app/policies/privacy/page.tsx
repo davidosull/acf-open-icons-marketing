@@ -25,7 +25,7 @@ export default function PrivacyPage() {
           <SectionHeader
             className='!mb-0'
             subtitle={`Updated: ${updatedDate}`}
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title='Privacy Policy'
             description='How we collect, use, and protect your personal information.'
           />

@@ -25,7 +25,7 @@ export default function TermsPage() {
           <SectionHeader
             className='!mb-0'
             subtitle={`Updated: ${updatedDate}`}
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title='Terms of Use'
             description='Terms and conditions for using ACF Open Icons.'
           />

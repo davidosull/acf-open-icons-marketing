@@ -91,7 +91,7 @@ acf_open_icon($icon_field, ${paramsString});`;
         {/* Controls Section - Left */}
         <Card className='flex flex-col bg-gradient-to-b from-white to-zinc-50'>
           <CardHeader>
-            <CardTitle className='mb-2'>Controls</CardTitle>
+            <CardTitle className='mb-2 text-sm'>Controls</CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col gap-3'>
             {/* Size Control */}
@@ -192,7 +192,7 @@ acf_open_icon($icon_field, ${paramsString});`;
         {/* Preview Section - Center */}
         <Card className='relative overflow-hidden bg-gradient-to-b from-white to-zinc-50 flex flex-col min-h-[250px]'>
           <CardHeader>
-            <CardTitle className='mb-2'>Live Preview</CardTitle>
+            <CardTitle className='mb-2 text-sm'>Live Preview</CardTitle>
           </CardHeader>
           <CardContent className='relative p-0 flex-1 flex items-center justify-center'>
             {/* Background Pattern */}
@@ -232,7 +232,7 @@ acf_open_icon($icon_field, ${paramsString});`;
         <Card className='flex flex-col h-full bg-gradient-to-b from-white to-zinc-50 md:col-span-2 lg:col-span-1'>
           <CardHeader>
             <div className='flex items-center justify-between w-full'>
-              <CardTitle>Code Example</CardTitle>
+              <CardTitle className='text-sm'>Code Example</CardTitle>
               <Button
                 variant='white'
                 size='sm'

@@ -57,6 +57,8 @@ export async function GET() {
         const response = await fetch(fetchUrl, {
           next: { revalidate: 3600 }, // Revalidate every hour
           headers,
+          // Add timeout for production
+          signal: AbortSignal.timeout(10000), // 10 second timeout
         });
 
         if (response.ok) {
@@ -80,23 +82,42 @@ export async function GET() {
       } catch (fetchError) {
         console.warn(
           'Failed to fetch from URL, trying local file:',
-          fetchError
+          fetchError instanceof Error ? fetchError.message : String(fetchError)
         );
         // Fall through to local file
         const localPath = path.join(process.cwd(), 'CHANGELOG.json');
         if (fs.existsSync(localPath)) {
-          const fileContent = fs.readFileSync(localPath, 'utf-8');
-          changelogData = JSON.parse(fileContent);
+          try {
+            const fileContent = fs.readFileSync(localPath, 'utf-8');
+            changelogData = JSON.parse(fileContent);
+          } catch (parseError) {
+            return NextResponse.json(
+              {
+                error: 'Failed to parse local changelog file',
+                details:
+                  process.env.NODE_ENV === 'development'
+                    ? parseError instanceof Error
+                      ? parseError.message
+                      : String(parseError)
+                    : undefined,
+              },
+              { status: 500 }
+            );
+          }
         } else {
           return NextResponse.json(
             {
               error:
-                'Changelog not available. Please configure CHANGELOG_URL or add CHANGELOG.json locally.',
+                'Changelog not available. Please configure CHANGELOG_URL environment variable or add CHANGELOG.json locally.',
               details:
                 process.env.NODE_ENV === 'development'
                   ? `URL: ${
                       CHANGELOG_URL || 'NOT SET'
-                    }, Local file exists: ${fs.existsSync(localPath)}`
+                    }, Local file exists: ${fs.existsSync(localPath)}, Fetch error: ${
+                      fetchError instanceof Error
+                        ? fetchError.message
+                        : String(fetchError)
+                    }`
                   : undefined,
             },
             { status: 404 }
@@ -107,13 +128,32 @@ export async function GET() {
       // Development: Try local file first
       const localPath = path.join(process.cwd(), 'CHANGELOG.json');
       if (fs.existsSync(localPath)) {
-        const fileContent = fs.readFileSync(localPath, 'utf-8');
-        changelogData = JSON.parse(fileContent);
+        try {
+          const fileContent = fs.readFileSync(localPath, 'utf-8');
+          changelogData = JSON.parse(fileContent);
+        } catch (parseError) {
+          return NextResponse.json(
+            {
+              error: 'Failed to parse local changelog file',
+              details:
+                process.env.NODE_ENV === 'development'
+                  ? parseError instanceof Error
+                    ? parseError.message
+                    : String(parseError)
+                  : undefined,
+            },
+            { status: 500 }
+          );
+        }
       } else {
         return NextResponse.json(
           {
             error:
               'Changelog not found. Please configure CHANGELOG_URL environment variable or add CHANGELOG.json to the repo root.',
+            details:
+              process.env.NODE_ENV === 'development'
+                ? `CHANGELOG_URL: ${CHANGELOG_URL || 'NOT SET'}`
+                : undefined,
           },
           { status: 404 }
         );
@@ -129,8 +169,13 @@ export async function GET() {
     });
   } catch (error) {
     console.error('Error fetching or parsing changelog:', error);
+    // Provide more detailed error in development
+    const errorMessage =
+      process.env.NODE_ENV === 'development'
+        ? `Failed to fetch or parse changelog: ${error instanceof Error ? error.message : String(error)}`
+        : 'Failed to fetch or parse changelog';
     return NextResponse.json(
-      { error: 'Failed to fetch or parse changelog' },
+      { error: errorMessage },
       { status: 500 }
     );
   }

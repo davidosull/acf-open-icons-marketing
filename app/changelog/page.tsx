@@ -23,29 +23,37 @@ export default async function ChangelogPage() {
   try {
     // Fetch changelog from API
     // For dynamic routes, this will run at request time, not build time
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      (process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : process.env.NETLIFY
-        ? process.env.URL || process.env.DEPLOY_PRIME_URL || 'http://localhost:3000'
-        : 'http://localhost:3000');
-
-    const apiUrl = `${baseUrl}/api/changelog`;
+    // Use relative URL for same-origin requests (works in both dev and production)
+    const apiUrl = '/api/changelog';
 
     const response = await fetch(apiUrl, {
       cache: 'no-store', // Always fetch fresh data for dynamic route
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (response.ok) {
-      changelogData = await response.json();
+      const data = await response.json();
+      // Check if the response contains an error
+      if (data.error) {
+        error = data.error;
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Changelog API error:', data);
+        }
+      } else {
+        changelogData = data;
+      }
     } else {
-      error = 'Failed to load changelog';
+      const errorData = await response.json().catch(() => ({}));
+      error = errorData.error || `Failed to load changelog (${response.status})`;
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Changelog fetch failed:', response.status, errorData);
+      }
     }
   } catch (err) {
     // Handle errors gracefully - don't fail the build
     error = 'Failed to load changelog';
-    // Only log in development
     if (process.env.NODE_ENV === 'development') {
       console.error('Error fetching changelog:', err);
     }
@@ -58,7 +66,7 @@ export default async function ChangelogPage() {
           <SectionHeader
             className='!mb-0'
             subtitle='Changelog'
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title='Version History'
             description='Stay up to date with the latest features, improvements, and fixes in ACF Open Icons.'
           />

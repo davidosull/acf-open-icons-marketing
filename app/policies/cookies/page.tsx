@@ -25,7 +25,7 @@ export default function CookiesPage() {
           <SectionHeader
             className='!mb-0'
             subtitle={`Updated: ${updatedDate}`}
-            subtitleBadgeVariant='blue'
+            subtitleBadgeVariant='white'
             title='Cookie Policy'
             description='Information about how we use cookies on our website.'
           />
