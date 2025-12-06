@@ -22,7 +22,7 @@ export function SegmentedControl({
   return (
     <div
       className={cn(
-        'flex w-full rounded-lg bg-white shadow-sm ring-1 ring-inset ring-zinc-200 p-1',
+        'flex w-full rounded-lg bg-white shadow-sm ring-1 ring-inset ring-zinc-200 p-0.5',
         className
       )}
       role='group'
@@ -33,7 +33,7 @@ export function SegmentedControl({
           type='button'
           onClick={() => onChange(option.value)}
           className={cn(
-            'relative flex-1 rounded-md px-4 py-2 text-sm font-medium transition-all focus:z-10',
+            'relative flex-1 rounded-md px-3 py-1.5 text-xs font-medium transition-all focus:z-10',
             value === option.value
               ? 'bg-zinc-900 text-white shadow-sm'
               : 'text-zinc-700 hover:bg-zinc-50'

@@ -17,16 +17,16 @@ export function PricingToggle({
   return (
     <div
       className={cn(
-        'mt-12 flex flex-col items-start sm:items-center justify-center gap-4 relative',
+        'mt-12 flex flex-col items-center justify-center gap-3 relative',
         className
       )}
     >
-      <div className='relative inline-flex items-center rounded-lg bg-white p-1 shadow-sm ring-1 ring-inset ring-zinc-200'>
+      <div className='relative inline-flex items-center rounded-lg bg-white p-0.5 shadow-sm ring-1 ring-inset ring-zinc-200'>
         <button
           type='button'
           onClick={() => onPeriodChange('monthly')}
           className={cn(
-            'relative rounded-md px-4 py-2 text-sm font-medium transition-all focus:z-10',
+            'relative rounded-md px-3 py-1.5 text-xs font-medium transition-all focus:z-10',
             period === 'monthly'
               ? 'bg-zinc-900 text-white shadow-sm'
               : 'text-zinc-700 hover:bg-zinc-50'
@@ -38,7 +38,7 @@ export function PricingToggle({
           type='button'
           onClick={() => onPeriodChange('annual')}
           className={cn(
-            'relative rounded-md px-4 py-2 text-sm font-medium transition-all focus:z-10',
+            'relative rounded-md px-3 py-1.5 text-xs font-medium transition-all focus:z-10',
             period === 'annual'
               ? 'bg-zinc-900 text-white shadow-sm'
               : 'text-zinc-700 hover:bg-zinc-50'
@@ -49,13 +49,14 @@ export function PricingToggle({
         <Badge
           variant='success'
           weight='bold'
+          size='sm'
           className={cn(
             'whitespace-nowrap absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out',
             period === 'annual'
               ? 'opacity-100 scale-100 translate-x-0'
               : 'opacity-0 scale-95 translate-x-2 pointer-events-none'
           )}
-          style={{ left: 'calc(100% + 0.75rem)' }}
+          style={{ left: 'calc(100% + 0.5rem)' }}
         >
           Save {savingsPercentage}%
         </Badge>
