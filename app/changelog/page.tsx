@@ -34,6 +34,10 @@ export default async function ChangelogPage() {
 
     const apiUrl = `${baseUrl}/api/changelog`;
 
+    console.log('[Changelog Page] Fetching from:', apiUrl);
+    console.log('[Changelog Page] Base URL:', baseUrl);
+    console.log('[Changelog Page] NODE_ENV:', process.env.NODE_ENV);
+
     const response = await fetch(apiUrl, {
       cache: 'no-store', // Always fetch fresh data for dynamic route
       headers: {
@@ -41,16 +45,22 @@ export default async function ChangelogPage() {
       },
     });
 
+    console.log('[Changelog Page] Response status:', response.status, response.statusText);
+
     if (response.ok) {
       const data = await response.json();
+      console.log('[Changelog Page] Response received, entries:', data?.entries?.length || 0);
       // Check if the response contains an error
       if (data.error) {
+        console.error('[Changelog Page] API returned error:', data.error);
         error = data.error;
       } else {
         changelogData = data;
+        console.log('[Changelog Page] Successfully loaded changelog');
       }
     } else {
       const errorText = await response.text().catch(() => 'Unable to read error response');
+      console.error('[Changelog Page] Fetch failed:', response.status, errorText.substring(0, 200));
       try {
         const errorData = JSON.parse(errorText);
         error = errorData.error || `Failed to load changelog (${response.status})`;
@@ -60,6 +70,10 @@ export default async function ChangelogPage() {
     }
   } catch (err) {
     // Handle errors gracefully - don't fail the build
+    console.error('[Changelog Page] Unexpected error:', err instanceof Error ? err.message : String(err));
+    if (err instanceof Error && err.stack) {
+      console.error('[Changelog Page] Stack:', err.stack);
+    }
     error = 'Failed to load changelog';
   }
 
