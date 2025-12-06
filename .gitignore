@@ -44,3 +44,6 @@ next-env.d.ts
 .cursor/
 *.plan.md
 plans/
+
+# Local Netlify folder
+.netlify
