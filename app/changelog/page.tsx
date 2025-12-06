@@ -4,6 +4,7 @@ import { SectionHeader } from '@/components/sections/SectionHeading';
 import { ChangelogContent } from './ChangelogContent';
 import { FeatureRequest } from '@/components/sections/FeatureRequest';
 import { SITE_URL } from '@/lib/constants';
+import { getChangelogData } from '@/lib/get-changelog-data';
 
 export const metadata: Metadata = {
   title: 'Changelog',
@@ -21,60 +22,18 @@ export default async function ChangelogPage() {
   let error = null;
 
   try {
-    // Fetch changelog from API
-    // For dynamic routes, this will run at request time, not build time
-    // In server components, we need an absolute URL for fetch
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      (process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : process.env.NETLIFY
-        ? process.env.URL || process.env.DEPLOY_PRIME_URL || 'http://localhost:8888'
-        : 'http://localhost:3000');
-
-    const apiUrl = `${baseUrl}/api/changelog`;
-
-    console.log('[Changelog Page] Fetching from:', apiUrl);
-    console.log('[Changelog Page] Base URL:', baseUrl);
-    console.log('[Changelog Page] NODE_ENV:', process.env.NODE_ENV);
-
-    const response = await fetch(apiUrl, {
-      cache: 'no-store', // Always fetch fresh data for dynamic route
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    console.log('[Changelog Page] Response status:', response.status, response.statusText);
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log('[Changelog Page] Response received, entries:', data?.entries?.length || 0);
-      // Check if the response contains an error
-      if (data.error) {
-        console.error('[Changelog Page] API returned error:', data.error);
-        error = data.error;
-      } else {
-        changelogData = data;
-        console.log('[Changelog Page] Successfully loaded changelog');
-      }
-    } else {
-      const errorText = await response.text().catch(() => 'Unable to read error response');
-      console.error('[Changelog Page] Fetch failed:', response.status, errorText.substring(0, 200));
-      try {
-        const errorData = JSON.parse(errorText);
-        error = errorData.error || `Failed to load changelog (${response.status})`;
-      } catch {
-        error = `Failed to load changelog (${response.status}): ${errorText.substring(0, 100)}`;
-      }
-    }
+    // Call the shared function directly instead of making an HTTP request
+    // This avoids network issues in serverless environments
+    console.log('[Changelog Page] Fetching changelog data');
+    changelogData = await getChangelogData();
+    console.log('[Changelog Page] Successfully loaded changelog with', changelogData?.entries?.length || 0, 'entries');
   } catch (err) {
     // Handle errors gracefully - don't fail the build
     console.error('[Changelog Page] Unexpected error:', err instanceof Error ? err.message : String(err));
     if (err instanceof Error && err.stack) {
       console.error('[Changelog Page] Stack:', err.stack);
     }
-    error = 'Failed to load changelog';
+    error = err instanceof Error ? err.message : 'Failed to load changelog';
   }
 
   return (
