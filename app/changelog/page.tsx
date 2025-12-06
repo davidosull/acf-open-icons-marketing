@@ -1,0 +1,74 @@
+import type { Metadata } from 'next';
+import { Section } from '@/components/sections/Section';
+import { SectionHeader } from '@/components/sections/SectionHeading';
+import { ChangelogContent } from './ChangelogContent';
+import { FeatureRequest } from '@/components/sections/FeatureRequest';
+import { SITE_URL } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: 'Changelog',
+  description: 'Version history and release notes for ACF Open Icons',
+  alternates: {
+    canonical: `${SITE_URL}/changelog`,
+  },
+};
+
+export default async function ChangelogPage() {
+  let changelogData = null;
+  let error = null;
+
+  try {
+    // Fetch changelog from API
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : 'http://localhost:3000');
+    const response = await fetch(`${baseUrl}/api/changelog`, {
+      next: { revalidate: 3600 }, // Revalidate every hour
+    });
+
+    if (response.ok) {
+      changelogData = await response.json();
+    } else {
+      error = 'Failed to load changelog';
+    }
+  } catch (err) {
+    console.error('Error fetching changelog:', err);
+    error = 'Failed to load changelog';
+  }
+
+  return (
+    <>
+      <Section background='blue-600/10'>
+        <div className='mx-auto max-w-2xl text-center'>
+          <SectionHeader
+            className='!mb-0'
+            subtitle='Changelog'
+            subtitleBadgeVariant='blue'
+            title='Version History'
+            description='Stay up to date with the latest features, improvements, and fixes in ACF Open Icons.'
+          />
+        </div>
+      </Section>
+
+      <Section maxWidth='6xl'>
+        <div className='mx-auto max-w-2xl lg:max-w-3xl'>
+          {error ? (
+            <div className='rounded-lg border border-red-200 bg-red-50 p-4 text-red-800'>
+              <p>{error}</p>
+            </div>
+          ) : changelogData ? (
+            <ChangelogContent entries={changelogData.entries} />
+          ) : (
+            <div className='text-center text-zinc-500'>
+              Loading changelog...
+            </div>
+          )}
+        </div>
+
+        <FeatureRequest />
+      </Section>
+    </>
+  );
+}
