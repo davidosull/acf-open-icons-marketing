@@ -102,26 +102,26 @@ export function ImageModal({
           <Button
             variant='secondary'
             size='icon'
-            className='absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 bg-white/10 hover:bg-white/20 text-white border-white/20'
+            className='absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 h-12 w-12 sm:h-10 sm:w-10 bg-white/20 hover:bg-white/30 text-white border-white/30 z-20'
             onClick={(e) => {
               e.stopPropagation();
               goToPrevious();
             }}
             aria-label='Previous image'
           >
-            <ChevronLeft className='h-6 w-6' />
+            <ChevronLeft className='h-6 w-6 sm:h-5 sm:w-5' />
           </Button>
           <Button
             variant='secondary'
             size='icon'
-            className='absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 bg-white/10 hover:bg-white/20 text-white border-white/20'
+            className='absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 h-12 w-12 sm:h-10 sm:w-10 bg-white/20 hover:bg-white/30 text-white border-white/30 z-20'
             onClick={(e) => {
               e.stopPropagation();
               goToNext();
             }}
             aria-label='Next image'
           >
-            <ChevronRight className='h-6 w-6' />
+            <ChevronRight className='h-6 w-6 sm:h-5 sm:w-5' />
           </Button>
         </>
       )}
@@ -147,31 +147,38 @@ export function ImageModal({
       {/* Thumbnail Navigation */}
       {showThumbnails && hasNavigation && (
         <div
-          className='mt-4 flex gap-2 justify-center'
+          className='mt-4 w-full px-4 sm:px-0'
           onClick={(e) => e.stopPropagation()}
         >
-          {images.map((image, index) => (
-            <button
-              key={index}
-              type='button'
-              onClick={() => onNavigate?.(index)}
-              className={cn(
-                'relative w-20 h-12 rounded-lg overflow-hidden border-2 transition-all',
-                index === currentIndex
-                  ? 'border-white scale-110'
-                  : 'border-white/30 hover:border-white/60 opacity-70 hover:opacity-100'
-              )}
-              aria-label={`View ${image.title || image.alt}`}
-            >
-              <Image
-                src={image.path}
-                alt={image.alt}
-                fill
-                className='object-cover'
-                sizes='80px'
-              />
-            </button>
-          ))}
+          <div className='relative'>
+            {/* Thumbnail scroll container */}
+            <div className='overflow-x-auto scrollbar-hide -mx-4 sm:mx-0 px-4 sm:px-0'>
+              <div className='flex gap-2 justify-start sm:justify-center min-w-max sm:min-w-0'>
+                {images.map((image, index) => (
+                  <button
+                    key={index}
+                    type='button'
+                    onClick={() => onNavigate?.(index)}
+                    className={cn(
+                      'relative w-20 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0',
+                      index === currentIndex
+                        ? 'border-white scale-110'
+                        : 'border-white/30 hover:border-white/60 opacity-70 hover:opacity-100'
+                    )}
+                    aria-label={`View ${image.title || image.alt}`}
+                  >
+                    <Image
+                      src={image.path}
+                      alt={image.alt}
+                      fill
+                      className='object-cover'
+                      sizes='80px'
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       )}
 

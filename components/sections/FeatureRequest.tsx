@@ -16,7 +16,7 @@ export function FeatureRequest() {
             <h3 className='text-2xl font-medium text-zinc-900 mb-3'>
               Have a feature request?
             </h3>
-            <p className='text-zinc-600 mb-6 max-w-lg text-base leading-relaxed'>
+            <p className='text-zinc-600 mb-6 max-w-lg text-base'>
               We&apos;d love to hear your ideas! Your feedback helps us
               prioritise what to build next and make ACF Open Icons even better
               for your workflow.

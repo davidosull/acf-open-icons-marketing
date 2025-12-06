@@ -92,7 +92,7 @@ function RoadmapItemCard({ item }: { item: RoadmapItem }) {
         </div>
       </CardHeader>
       <CardContent className='text-left'>
-        <p className='text-zinc-600 leading-relaxed'>{item.description}</p>
+        <p className='text-zinc-600'>{item.description}</p>
       </CardContent>
     </Card>
   );

@@ -85,7 +85,6 @@ export function ChangelogContent({ entries }: ChangelogContentProps) {
                     {items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}
-                        className='leading-relaxed'
                         dangerouslySetInnerHTML={{
                           __html: formatChangelogItem(item),
                         }}
@@ -93,7 +92,7 @@ export function ChangelogContent({ entries }: ChangelogContentProps) {
                     ))}
                   </ul>
                 ) : (
-                  <p className='text-zinc-600 text-left leading-relaxed'>
+                  <p className='text-zinc-600 text-left'>
                     {sectionName}
                   </p>
                 )}

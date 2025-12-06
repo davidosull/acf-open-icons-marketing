@@ -26,6 +26,7 @@ export function H1({ children, className }: TypographyProps) {
     <h1
       className={cn(
         'text-4xl font-medium tracking-tight text-zinc-900 sm:text-6xl',
+        'text-balance',
         className
       )}
     >
@@ -40,6 +41,7 @@ export function H2({ children, className }: TypographyProps) {
     <h2
       className={cn(
         'text-2xl font-medium tracking-tight text-zinc-900 sm:text-3xl',
+        'text-balance',
         className
       )}
     >
@@ -52,7 +54,11 @@ export function H2({ children, className }: TypographyProps) {
 export function H3({ children, className }: TypographyProps) {
   return (
     <h3
-      className={cn('text-lg font-medium text-zinc-900 sm:text-xl', className)}
+      className={cn(
+        'text-lg font-medium text-zinc-900 sm:text-xl',
+        'text-balance',
+        className
+      )}
     >
       {children}
     </h3>
@@ -63,7 +69,11 @@ export function H3({ children, className }: TypographyProps) {
 export function H4({ children, className }: TypographyProps) {
   return (
     <h4
-      className={cn('text-base font-medium text-zinc-900 sm:text-lg', className)}
+      className={cn(
+        'text-base font-medium text-zinc-900 sm:text-lg',
+        'text-balance',
+        className
+      )}
     >
       {children}
     </h4>
@@ -83,7 +93,7 @@ export function Subtitle({
   return (
     <Component
       className={cn(
-        'text-xs font-medium leading-7 text-zinc-400 sm:text-sm',
+        'text-xs font-medium text-zinc-400 sm:text-sm',
         className
       )}
     >
@@ -97,7 +107,7 @@ export function BodyLarge({ children, className }: TypographyProps) {
   return (
     <p
       className={cn(
-        'text-sm leading-7 text-zinc-600 sm:text-base sm:leading-8',
+        'text-sm text-zinc-600 sm:text-base',
         className
       )}
     >
@@ -111,7 +121,7 @@ export function Body({ children, className }: TypographyProps) {
   return (
     <p
       className={cn(
-        'text-sm leading-6 text-zinc-600 sm:text-base sm:leading-7',
+        'text-sm text-zinc-600 sm:text-base',
         className
       )}
     >
@@ -125,7 +135,7 @@ export function BodySmall({ children, className }: TypographyProps) {
   return (
     <p
       className={cn(
-        'text-xs leading-5 text-zinc-500 sm:text-sm sm:leading-6',
+        'text-xs text-zinc-500 sm:text-sm',
         className
       )}
     >

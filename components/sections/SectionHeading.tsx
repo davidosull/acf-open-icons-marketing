@@ -32,6 +32,7 @@ export function SectionHeading({
       <Component
         className={cn(
           'text-4xl font-medium tracking-tight text-zinc-900 sm:text-6xl',
+          'text-balance',
           className
         )}
       >
@@ -49,6 +50,7 @@ export function SectionHeading({
       <Component
         className={cn(
           'text-lg font-medium text-zinc-900 sm:text-xl',
+          'text-balance',
           className
         )}
       >
@@ -59,7 +61,11 @@ export function SectionHeading({
 
   return (
     <Component
-      className={cn('text-base font-medium text-zinc-900 sm:text-lg', className)}
+      className={cn(
+        'text-base font-medium text-zinc-900 sm:text-lg',
+        'text-balance',
+        className
+      )}
     >
       {children}
     </Component>
