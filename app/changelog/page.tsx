@@ -26,6 +26,10 @@ export default async function ChangelogPage() {
     // Use relative URL for same-origin requests (works in both dev and production)
     const apiUrl = '/api/changelog';
 
+    console.log('[Changelog Page] Fetching from:', apiUrl);
+    console.log('[Changelog Page] NODE_ENV:', process.env.NODE_ENV);
+    console.log('[Changelog Page] Request URL:', typeof window !== 'undefined' ? window.location.href : 'SSR');
+
     const response = await fetch(apiUrl, {
       cache: 'no-store', // Always fetch fresh data for dynamic route
       headers: {
@@ -33,30 +37,46 @@ export default async function ChangelogPage() {
       },
     });
 
+    console.log('[Changelog Page] Response status:', response.status, response.statusText);
+    console.log('[Changelog Page] Response headers:', Object.fromEntries(response.headers.entries()));
+
     if (response.ok) {
       const data = await response.json();
+      console.log('[Changelog Page] Response data keys:', Object.keys(data));
+      console.log('[Changelog Page] Entries count:', data?.entries?.length || 0);
+
       // Check if the response contains an error
       if (data.error) {
         error = data.error;
-        if (process.env.NODE_ENV === 'development') {
-          console.error('Changelog API error:', data);
-        }
+        console.error('[Changelog Page] API returned error:', data);
       } else {
         changelogData = data;
+        console.log('[Changelog Page] Successfully loaded changelog data');
       }
     } else {
-      const errorData = await response.json().catch(() => ({}));
-      error = errorData.error || `Failed to load changelog (${response.status})`;
-      if (process.env.NODE_ENV === 'development') {
-        console.error('Changelog fetch failed:', response.status, errorData);
+      const errorText = await response.text().catch(() => 'Unable to read error response');
+      console.error('[Changelog Page] Fetch failed:', {
+        status: response.status,
+        statusText: response.statusText,
+        errorText: errorText.substring(0, 500),
+      });
+
+      try {
+        const errorData = JSON.parse(errorText);
+        error = errorData.error || `Failed to load changelog (${response.status})`;
+        console.error('[Changelog Page] Parsed error data:', errorData);
+      } catch {
+        error = `Failed to load changelog (${response.status}): ${errorText.substring(0, 100)}`;
       }
     }
   } catch (err) {
     // Handle errors gracefully - don't fail the build
+    console.error('[Changelog Page] Unexpected error:', {
+      error: err instanceof Error ? err.message : String(err),
+      stack: err instanceof Error ? err.stack : undefined,
+      name: err instanceof Error ? err.name : undefined,
+    });
     error = 'Failed to load changelog';
-    if (process.env.NODE_ENV === 'development') {
-      console.error('Error fetching changelog:', err);
-    }
   }
 
   return (

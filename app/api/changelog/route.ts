@@ -19,11 +19,17 @@ import path from 'path';
  * - No manual intervention needed - fully automated
  */
 export async function GET() {
+  console.log('[Changelog API] Request received');
+  console.log('[Changelog API] CHANGELOG_URL:', CHANGELOG_URL || 'NOT SET');
+  console.log('[Changelog API] NODE_ENV:', process.env.NODE_ENV);
+  console.log('[Changelog API] GITHUB_TOKEN:', process.env.GITHUB_TOKEN ? 'SET' : 'NOT SET');
+
   try {
     let changelogData: ChangelogData;
 
     // Try to fetch from URL first (production)
     if (CHANGELOG_URL && !CHANGELOG_URL.includes('your-username')) {
+      console.log('[Changelog API] Attempting to fetch from URL:', CHANGELOG_URL);
       try {
         let fetchUrl = CHANGELOG_URL;
         const headers: HeadersInit = {
@@ -54,12 +60,22 @@ export async function GET() {
           headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
         }
 
+        console.log('[Changelog API] Fetching from:', fetchUrl);
+        console.log('[Changelog API] Headers:', JSON.stringify(headers));
+
+        // Create abort controller for timeout (more compatible than AbortSignal.timeout)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
         const response = await fetch(fetchUrl, {
           next: { revalidate: 3600 }, // Revalidate every hour
           headers,
-          // Add timeout for production
-          signal: AbortSignal.timeout(10000), // 10 second timeout
+          signal: controller.signal,
+        }).finally(() => {
+          clearTimeout(timeoutId);
         });
+
+        console.log('[Changelog API] Response status:', response.status, response.statusText);
 
         if (response.ok) {
           // Handle GitHub API response (JSON with base64 content) or raw JSON
@@ -70,27 +86,46 @@ export async function GET() {
               'utf-8'
             );
             changelogData = JSON.parse(jsonContent);
+            console.log('[Changelog API] Successfully parsed GitHub API response');
           } else {
             // Raw JSON file URL
             changelogData = await response.json();
+            console.log('[Changelog API] Successfully fetched raw JSON');
           }
+          console.log('[Changelog API] Changelog entries count:', changelogData?.entries?.length || 0);
         } else {
+          const errorText = await response.text().catch(() => 'Unable to read error response');
+          console.error('[Changelog API] Fetch failed:', {
+            status: response.status,
+            statusText: response.statusText,
+            errorText: errorText.substring(0, 200),
+          });
           throw new Error(
             `Failed to fetch: ${response.status} ${response.statusText}`
           );
         }
       } catch (fetchError) {
+        console.error('[Changelog API] Fetch error details:', {
+          error: fetchError instanceof Error ? fetchError.message : String(fetchError),
+          stack: fetchError instanceof Error ? fetchError.stack : undefined,
+          url: CHANGELOG_URL,
+        });
         console.warn(
-          'Failed to fetch from URL, trying local file:',
+          '[Changelog API] Failed to fetch from URL, trying local file:',
           fetchError instanceof Error ? fetchError.message : String(fetchError)
         );
         // Fall through to local file
         const localPath = path.join(process.cwd(), 'CHANGELOG.json');
+        console.log('[Changelog API] Checking for local file at:', localPath);
+        console.log('[Changelog API] Local file exists:', fs.existsSync(localPath));
+
         if (fs.existsSync(localPath)) {
           try {
             const fileContent = fs.readFileSync(localPath, 'utf-8');
             changelogData = JSON.parse(fileContent);
+            console.log('[Changelog API] Successfully loaded from local file');
           } catch (parseError) {
+            console.error('[Changelog API] Failed to parse local file:', parseError);
             return NextResponse.json(
               {
                 error: 'Failed to parse local changelog file',
@@ -105,6 +140,7 @@ export async function GET() {
             );
           }
         } else {
+          console.error('[Changelog API] No local file found, returning 404');
           return NextResponse.json(
             {
               error:
@@ -126,12 +162,18 @@ export async function GET() {
       }
     } else {
       // Development: Try local file first
+      console.log('[Changelog API] CHANGELOG_URL not set or is placeholder, using local file');
       const localPath = path.join(process.cwd(), 'CHANGELOG.json');
+      console.log('[Changelog API] Checking for local file at:', localPath);
+      console.log('[Changelog API] Local file exists:', fs.existsSync(localPath));
+
       if (fs.existsSync(localPath)) {
         try {
           const fileContent = fs.readFileSync(localPath, 'utf-8');
           changelogData = JSON.parse(fileContent);
+          console.log('[Changelog API] Successfully loaded from local file');
         } catch (parseError) {
+          console.error('[Changelog API] Failed to parse local file:', parseError);
           return NextResponse.json(
             {
               error: 'Failed to parse local changelog file',
@@ -146,6 +188,7 @@ export async function GET() {
           );
         }
       } else {
+        console.error('[Changelog API] No local file found, returning 404');
         return NextResponse.json(
           {
             error:
@@ -160,6 +203,7 @@ export async function GET() {
       }
     }
 
+    console.log('[Changelog API] Returning successful response with', changelogData?.entries?.length || 0, 'entries');
     return NextResponse.json(changelogData, {
       headers: {
         'Content-Type': 'application/json',
@@ -168,7 +212,11 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error('Error fetching or parsing changelog:', error);
+    console.error('[Changelog API] Unexpected error:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      name: error instanceof Error ? error.name : undefined,
+    });
     // Provide more detailed error in development
     const errorMessage =
       process.env.NODE_ENV === 'development'
