@@ -145,10 +145,13 @@ export function DocsSidebar() {
   // Mobile: Dropdown select (sticky below header)
   if (isMobile) {
     return (
-      <div className='lg:hidden sticky top-[73px] z-40 bg-white py-6 mb-8 -mx-6 lg:-mx-8 border-b border-zinc-200'>
+      <div
+        className='lg:hidden sticky z-40 bg-zinc-50 py-4 mb-8 -mx-6 lg:-mx-8 border-b border-zinc-200'
+        style={{ top: '64px' }}
+      >
         <div className='px-6 lg:px-8'>
           <Select value={activeSection} onValueChange={scrollToSection}>
-            <SelectTrigger className='w-full'>
+            <SelectTrigger className='w-full bg-white'>
               <SelectValue placeholder='Navigate to section' />
             </SelectTrigger>
             <SelectContent>
@@ -183,7 +186,7 @@ export function DocsSidebar() {
   // Desktop: Sidebar navigation
   return (
     <aside className='hidden lg:block w-64 shrink-0'>
-      <div className='sticky top-24 space-y-1'>
+      <div className='sticky space-y-1' style={{ top: '64px' }}>
         <nav className='space-y-1'>
           {navItems.map((item) => {
             const Icon = item.icon;

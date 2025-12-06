@@ -89,7 +89,7 @@ export function ImageModal({
       {/* Close Button */}
       <button
         type='button'
-        className='absolute top-4 right-4 text-white hover:text-zinc-300 transition-colors z-10'
+        className='absolute top-4 right-4 text-white hover:text-zinc-300 transition-colors z-10 rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black/50'
         onClick={onClose}
         aria-label='Close gallery'
       >
@@ -102,26 +102,26 @@ export function ImageModal({
           <Button
             variant='secondary'
             size='icon'
-            className='absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 h-12 w-12 sm:h-10 sm:w-10 bg-white/20 hover:bg-white/30 text-white border-white/30 z-20'
+            className='absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-10 sm:w-10 bg-white/20 hover:bg-white/30 text-white border-white/30 z-20 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50'
             onClick={(e) => {
               e.stopPropagation();
               goToPrevious();
             }}
             aria-label='Previous image'
           >
-            <ChevronLeft className='h-6 w-6 sm:h-5 sm:w-5' />
+            <ChevronLeft className='h-5 w-5' />
           </Button>
           <Button
             variant='secondary'
             size='icon'
-            className='absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 h-12 w-12 sm:h-10 sm:w-10 bg-white/20 hover:bg-white/30 text-white border-white/30 z-20'
+            className='absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-10 sm:w-10 bg-white/20 hover:bg-white/30 text-white border-white/30 z-20 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50'
             onClick={(e) => {
               e.stopPropagation();
               goToNext();
             }}
             aria-label='Next image'
           >
-            <ChevronRight className='h-6 w-6 sm:h-5 sm:w-5' />
+            <ChevronRight className='h-5 w-5' />
           </Button>
         </>
       )}
