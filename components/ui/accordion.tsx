@@ -111,12 +111,12 @@ export function AccordionTrigger({
       type='button'
       onClick={() => context.toggleItem(itemContext.value)}
       className={cn(
-        'flex w-full items-center justify-between py-4 text-left font-medium transition-all',
+        'flex w-full items-center justify-between gap-4 py-4 text-left font-medium transition-all',
         className
       )}
       data-state={isOpen ? 'open' : 'closed'}
     >
-      {children}
+      <span className='flex-1'>{children}</span>
       {isOpen ? (
         <CircleMinus className='h-5 w-5 shrink-0 text-zinc-500' />
       ) : (
