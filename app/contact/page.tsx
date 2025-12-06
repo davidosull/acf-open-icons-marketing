@@ -55,17 +55,19 @@ export default function ContactPage() {
       return;
     }
 
-    // Submit to Netlify
+    // Submit to API route
     try {
-      const response = await fetch('/', {
+      const formData = new FormData();
+      formData.append('name', data.name as string);
+      formData.append('email', data.email as string);
+      if (data.subject) {
+        formData.append('subject', data.subject as string);
+      }
+      formData.append('message', data.message as string);
+
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          ...Object.fromEntries(
-            Object.entries(data).map(([k, v]) => [k, v as string])
-          ),
-        }),
+        body: formData,
       });
 
       if (response.ok) {
@@ -125,10 +127,9 @@ export default function ContactPage() {
                 <form
                   name='contact'
                   method='POST'
-                  data-netlify='true'
+                  action='/api/contact'
                   onSubmit={handleSubmit}
                 >
-                  <input type='hidden' name='form-name' value='contact' />
                   <div className='space-y-6'>
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                       <div className='space-y-2'>
