@@ -48,7 +48,8 @@ export default function ContactPage() {
           <div className='lg:col-span-2'>
             <Card>
               <CardContent className='p-6 lg:p-8'>
-                <form name='contact' method='POST' netlify>
+                <form name='contact' method='POST' data-netlify='true'>
+                  <input type='hidden' name='form-name' value='contact' />
                   <div className='space-y-6'>
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                       <div className='space-y-2'>
