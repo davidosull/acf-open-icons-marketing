@@ -28,7 +28,7 @@ export function PricingToggle({
           className={cn(
             'relative rounded-md px-4 py-2 text-sm font-medium transition-all focus:z-10',
             period === 'monthly'
-              ? 'bg-blue-600 text-white shadow-sm'
+              ? 'bg-zinc-900 text-white shadow-sm'
               : 'text-zinc-700 hover:bg-zinc-50'
           )}
         >
@@ -40,7 +40,7 @@ export function PricingToggle({
           className={cn(
             'relative rounded-md px-4 py-2 text-sm font-medium transition-all focus:z-10',
             period === 'annual'
-              ? 'bg-blue-600 text-white shadow-sm'
+              ? 'bg-zinc-900 text-white shadow-sm'
               : 'text-zinc-700 hover:bg-zinc-50'
           )}
         >

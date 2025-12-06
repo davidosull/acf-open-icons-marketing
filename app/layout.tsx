@@ -10,6 +10,7 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -81,45 +82,55 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'ACF Open Icons',
+    applicationCategory: 'WordPress Plugin',
+    operatingSystem: 'WordPress',
+    description:
+      "Replace ACF's limited icon picker with a powerful, intuitive solution. Access thousands of professional icons from Lucide, Tabler, and Heroicons—all seamlessly integrated into your WordPress workflow.",
+    url: SITE_URL,
+    author: {
+      '@type': 'Person',
+      name: "David O'Sullivan",
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '5.00',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: '5.00',
+        priceCurrency: 'USD',
+        billingDuration: 'P1M',
+      },
+    },
+  };
+
   return (
     <html lang='en-GB'>
       <head>
-        <Script
-          id='structured-data'
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'ACF Open Icons',
-              applicationCategory: 'WordPress Plugin',
-              operatingSystem: 'WordPress',
-              description:
-                "Replace ACF's limited icon picker with a powerful, intuitive solution. Access thousands of professional icons from Lucide, Tabler, and Heroicons—all seamlessly integrated into your WordPress workflow.",
-              url: SITE_URL,
-              author: {
-                '@type': 'Person',
-                name: "David O'Sullivan",
-              },
-              offers: {
-                '@type': 'Offer',
-                price: '5.00',
-                priceCurrency: 'USD',
-                priceSpecification: {
-                  '@type': 'UnitPriceSpecification',
-                  price: '5.00',
-                  priceCurrency: 'USD',
-                  billingDuration: 'P1M',
-                },
-              },
-            }),
-          }}
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
         />
+        <link rel='dns-prefetch' href='https://assets.lemonsqueezy.com' />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />
+        <Script
+          id='structured-data'
+          type='application/ld+json'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </body>
     </html>
   );

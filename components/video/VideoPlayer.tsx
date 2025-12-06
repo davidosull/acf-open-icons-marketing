@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import { Play, Pause } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -85,11 +86,14 @@ export function VideoPlayer({ src, poster, className }: VideoPlayerProps) {
         />
       ) : (
         poster && (
-          <img
+          <Image
             src={poster}
             alt='Video thumbnail'
-            className='h-full w-full object-cover'
-            loading='lazy'
+            fill
+            className='object-cover'
+            priority
+            fetchPriority='high'
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px'
           />
         )
       )}

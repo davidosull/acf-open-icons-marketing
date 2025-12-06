@@ -60,7 +60,7 @@ export function PricingCard({
     <Card
       className={cn(
         'flex flex-col transition-all h-full',
-        isActive ? 'ring-2 ring-indigo-600 shadow-lg' : 'opacity-75',
+        isActive ? 'ring-2 ring-blue-600 shadow-lg' : 'opacity-75',
         className
       )}
     >

@@ -208,22 +208,22 @@ acf_open_icon($icon_field, ${paramsString});`;
             </div>
 
             {/* Preview Content - Centered Icon */}
-                <div
-                  className={cn(
+            <div
+              className={cn(
                 'relative z-10 flex items-center justify-center transition-all duration-300',
-                    className
-                  )}
-                  style={{
-                    color: iconColor,
+                className
+              )}
+              style={{
+                color: iconColor,
                 // transform: 'translateY(-30px)',
-                  }}
-                >
-                  <CheckCircle
-                    size={iconSize}
-                    strokeWidth={2}
-                    className={hasColorOverride ? '' : 'text-blue-600'}
-                    style={hasColorOverride ? { color: iconColor } : undefined}
-                  />
+              }}
+            >
+              <CheckCircle
+                size={iconSize}
+                strokeWidth={2}
+                className={hasColorOverride ? '' : 'text-blue-600'}
+                style={hasColorOverride ? { color: iconColor } : undefined}
+              />
             </div>
           </CardContent>
         </Card>
@@ -254,7 +254,7 @@ acf_open_icon($icon_field, ${paramsString});`;
               </Button>
             </div>
           </CardHeader>
-          <CardContent className='flex-1 flex flex-col p-0'>
+          <CardContent className='flex-1 flex flex-col min-h-0'>
             <CodeBlock code={code} language='php' />
           </CardContent>
         </Card>

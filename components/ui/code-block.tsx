@@ -23,7 +23,10 @@ export function CodeBlock({
   language = 'php',
   className,
 }: CodeBlockProps) {
-  const [style, setStyle] = React.useState<any>(null);
+  const [style, setStyle] = React.useState<Record<
+    string,
+    React.CSSProperties
+  > | null>(null);
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -39,7 +42,7 @@ export function CodeBlock({
 
   if (isLoading || !style) {
     return (
-      <div className={cn('flex-1 overflow-auto p-6 bg-white', className)}>
+      <div className={cn('flex-1 min-h-0 overflow-auto bg-white', className)}>
         <pre className='text-sm font-mono whitespace-pre-wrap'>
           <code>{code}</code>
         </pre>
@@ -48,15 +51,16 @@ export function CodeBlock({
   }
 
   return (
-    <div className={cn('flex-1 overflow-auto', className)}>
+    <div className={cn('flex-1 min-h-0 overflow-auto', className)}>
       <SyntaxHighlighter
         language={language}
         style={style}
         customStyle={{
           margin: 0,
           fontSize: '0.875rem',
-          padding: '1.5rem',
-          background: 'white',
+          padding: '0',
+          background: 'transparent',
+          height: '100%',
         }}
         codeTagProps={{
           style: {

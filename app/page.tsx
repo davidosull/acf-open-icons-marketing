@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import { Hero } from '@/components/sections/Hero';
 
 // Lazy load all below-the-fold components for better initial load performance
@@ -75,13 +76,27 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Screenshots />
-      <KeySellingPoints />
-      <Features />
-      <Benefits />
-      <InteractiveCodePlayground />
-      <Pricing />
-      <FAQ />
+      <Suspense fallback={<div className='min-h-[400px]' />}>
+        <Screenshots />
+      </Suspense>
+      <Suspense fallback={<div className='min-h-[400px]' />}>
+        <KeySellingPoints />
+      </Suspense>
+      <Suspense fallback={<div className='min-h-[400px]' />}>
+        <Features />
+      </Suspense>
+      <Suspense fallback={<div className='min-h-[400px]' />}>
+        <Benefits />
+      </Suspense>
+      <Suspense fallback={<div className='min-h-[600px]' />}>
+        <InteractiveCodePlayground />
+      </Suspense>
+      <Suspense fallback={<div className='min-h-[400px]' />}>
+        <Pricing />
+      </Suspense>
+      <Suspense fallback={<div className='min-h-[400px]' />}>
+        <FAQ />
+      </Suspense>
     </>
   );
 }

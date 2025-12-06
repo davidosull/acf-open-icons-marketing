@@ -48,7 +48,7 @@ export function SectionHeading({
     return (
       <Component
         className={cn(
-          'text-xl font-medium text-zinc-900 sm:text-2xl',
+          'text-lg font-medium text-zinc-900 sm:text-xl',
           className
         )}
       >
@@ -59,7 +59,7 @@ export function SectionHeading({
 
   return (
     <Component
-      className={cn('text-lg font-medium text-zinc-900 sm:text-xl', className)}
+      className={cn('text-base font-medium text-zinc-900 sm:text-lg', className)}
     >
       {children}
     </Component>
