@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
+
 export default async function ChangelogPage() {
   let changelogData = null;
   let error = null;
@@ -23,6 +26,8 @@ export default async function ChangelogPage() {
       process.env.NEXT_PUBLIC_SITE_URL ||
       (process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}`
+        : process.env.NETLIFY
+        ? process.env.URL || 'http://localhost:3000'
         : 'http://localhost:3000');
     const response = await fetch(`${baseUrl}/api/changelog`, {
       next: { revalidate: 3600 }, // Revalidate every hour
@@ -34,7 +39,10 @@ export default async function ChangelogPage() {
       error = 'Failed to load changelog';
     }
   } catch (err) {
-    console.error('Error fetching changelog:', err);
+    // Silently handle errors during build - changelog will load client-side
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error fetching changelog:', err);
+    }
     error = 'Failed to load changelog';
   }
 
