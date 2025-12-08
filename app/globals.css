@@ -32,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-sm sm:text-base;
     line-height: 1.6;
   }
 
@@ -46,8 +46,12 @@
     text-wrap: balance;
   }
 
-  /* Paragraph line-height */
-  p {
+  /* Paragraph and list base sizing - inherit responsive sizing from body */
+  p,
+  ul,
+  ol,
+  li {
+    @apply text-sm sm:text-base;
     line-height: 1.6;
   }
 }

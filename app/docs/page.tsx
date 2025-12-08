@@ -146,9 +146,7 @@ export default function DocsPage() {
                           <div className='flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-medium text-sm'>
                             {step.step}
                           </div>
-                          <CardTitle>
-                            {step.title}
-                          </CardTitle>
+                          <CardTitle>{step.title}</CardTitle>
                         </div>
                       </CardHeader>
                       <CardContent>
@@ -321,7 +319,7 @@ export default function DocsPage() {
                           code={codeExamples.withColor}
                           language='php'
                         />
-                        <p className='text-sm text-zinc-600 mt-2'>
+                        <p className='mt-2'>
                           This bypasses token-based color and forces a specific
                           color.
                         </p>

@@ -127,7 +127,7 @@ export default function ContactPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className='text-sm text-zinc-600 text-left'>
+                <p className='text-left'>
                   We aim to get back to you within 24 working hours (Mon-Thu
                   09:00-16:00 GMT). For urgent issues, please include
                   &quot;URGENT&quot; in your message.

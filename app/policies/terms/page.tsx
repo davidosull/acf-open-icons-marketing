@@ -34,7 +34,7 @@ export default function TermsPage() {
 
       <Section maxWidth='4xl'>
         <div className='prose prose-zinc max-w-none'>
-          <div className='space-y-8 text-zinc-700'>
+          <div className='space-y-8'>
             <section>
               <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                 1. Agreement to Terms
