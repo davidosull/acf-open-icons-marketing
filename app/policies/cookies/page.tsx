@@ -27,7 +27,7 @@ export default function CookiesPage() {
             subtitle={`Updated: ${updatedDate}`}
             subtitleBadgeVariant='white'
             title='Cookie Policy'
-            description='Information about how we use cookies on our website.'
+            description='How we use cookies and similar technologies on acfopenicons.com.'
           />
         </div>
       </Section>
@@ -36,329 +36,177 @@ export default function CookiesPage() {
         <div className='prose prose-zinc max-w-none'>
           <div className='space-y-8'>
             <section>
-              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                1. What Are Cookies?
-              </h2>
               <p>
-                Cookies are small text files that are placed on your device when
-                you visit a website. They are widely used to make websites work
-                more efficiently and provide information to website owners.
-              </p>
-              <p>
-                This Cookie Policy explains how David O'Sullivan ("I", "me", or
-                "my") uses cookies on acfopenicons.com (the "Website") and what
-                choices you have regarding them.
-              </p>
-            </section>
-
-            <section>
-              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                2. How I Use Cookies
-              </h2>
-              <p>I use cookies for the following purposes:</p>
-              <ul className='list-disc space-y-2 pl-6'>
-                <li>
-                  <strong>Essential Cookies:</strong> Required for the website
-                  to function properly
-                </li>
-                <li>
-                  <strong>Analytics Cookies:</strong> To understand how visitors
-                  use the website and improve user experience
-                </li>
-                <li>
-                  <strong>Functional Cookies:</strong> To remember your
-                  preferences and settings
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                3. Types of Cookies I Use
-              </h2>
-
-              <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
-                3.1 Essential Cookies
-              </h3>
-              <p>
-                These cookies are necessary for the website to function and
-                cannot be switched off. They are usually set in response to
-                actions you take, such as setting privacy preferences or filling
-                in forms.
-              </p>
-              <div className='bg-zinc-50 p-4 rounded-lg mt-4'>
-                <p className='text-sm'>
-                  <strong>Examples:</strong> Session cookies, security cookies,
-                  load balancing cookies
-                </p>
-              </div>
-
-              <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
-                3.2 Analytics Cookies
-              </h3>
-              <p>
-                These cookies help me understand how visitors interact with the
-                website by collecting and reporting information anonymously.
-              </p>
-
-              <h4 className='text-base font-medium text-zinc-900 mt-4 mb-2'>
-                Google Analytics & Google Tag Manager
-              </h4>
-              <p>
-                I use Google Analytics and Google Tag Manager to collect
-                information about how visitors use the website. This helps me
-                improve the website's functionality and user experience.
-              </p>
-              <ul className='list-disc space-y-2 pl-6 mt-2'>
-                <li>
-                  <strong>_ga:</strong> Used to distinguish users (expires after
-                  2 years)
-                </li>
-                <li>
-                  <strong>_ga_*:</strong> Used to persist session state (expires
-                  after 2 years)
-                </li>
-                <li>
-                  <strong>_gid:</strong> Used to distinguish users (expires
-                  after 24 hours)
-                </li>
-              </ul>
-              <p className='mt-4'>
-                You can opt out of Google Analytics by installing the{' '}
                 <a
-                  href='https://tools.google.com/dlpage/gaoptout'
+                  href='https://acfopenicons.com'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='text-blue-600 hover:underline'
                 >
-                  Google Analytics Opt-out Browser Add-on
-                </a>
-                .
-              </p>
-
-              <h4 className='text-base font-medium text-zinc-900 mt-4 mb-2'>
-                Microsoft Clarity
-              </h4>
-              <p>
-                I use Microsoft Clarity to record user sessions and understand
-                how visitors interact with the website. Clarity automatically
-                redacts personal information from recordings.
-              </p>
-              <ul className='list-disc space-y-2 pl-6 mt-2'>
-                <li>
-                  <strong>_clck:</strong> Persists the Clarity User ID and
-                  preferences (expires after 1 year)
-                </li>
-                <li>
-                  <strong>_clsk:</strong> Connects multiple page views by a user
-                  into a single Clarity session recording (expires after 1 day)
-                </li>
-                <li>
-                  <strong>CLID:</strong> Identifies the first-time Clarity saw
-                  this user on any site using Clarity (expires after 1 year)
-                </li>
-              </ul>
-              <p className='mt-4'>
-                You can learn more about Microsoft Clarity's privacy practices
-                at{' '}
-                <a
-                  href='https://clarity.microsoft.com/privacy'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-blue-600 hover:underline'
-                >
-                  https://clarity.microsoft.com/privacy
-                </a>
-                .
-              </p>
-
-              <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
-                3.3 Functional Cookies
-              </h3>
-              <p>
-                These cookies enable the website to provide enhanced
-                functionality and personalisation, such as remembering your
-                preferences.
+                  acfopenicons.com
+                </a>{' '}
+                (the "Site") uses cookies and similar technologies to provide
+                and improve the Services. This policy explains what cookies are,
+                which cookies we use, and how you can manage them.
               </p>
             </section>
 
             <section>
               <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                4. Third-Party Cookies
+                1. What are cookies?
               </h2>
               <p>
-                In addition to my own cookies, I may also use various
-                third-party cookies to report usage statistics and deliver
-                content. These include:
+                Cookies are small text files stored on your device when you
+                visit a website. They help the site remember your preferences,
+                support site functionality, and provide information about how
+                the site is used.
               </p>
+            </section>
+
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                2. How we use cookies
+              </h2>
+              <p>We use cookies for:</p>
               <ul className='list-disc space-y-2 pl-6'>
                 <li>
-                  <strong>Lemon Squeezy:</strong> Payment processing cookies
-                  when you make a purchase
+                  Essential cookies to operate the Site (e.g., session
+                  management, security, enabling core features).
                 </li>
                 <li>
-                  <strong>Google Services:</strong> Analytics and tag management
-                  cookies
+                  Preference cookies to remember language, region, and other
+                  choices.
                 </li>
                 <li>
-                  <strong>Microsoft Clarity:</strong> Session recording and
-                  analytics cookies
+                  Analytics cookies to understand how you use the Site and to
+                  improve it.
+                </li>
+                <li>
+                  Marketing cookies (only if you opt in) to tailor
+                  communications or advertising.
                 </li>
               </ul>
-              <p className='mt-4'>
-                These third-party services have their own privacy policies and
-                cookie practices. I encourage you to review them.
-              </p>
             </section>
 
             <section>
               <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                5. How Long Cookies Are Stored
+                3. Cookies we use on this Site
               </h2>
-              <p>Cookies are stored for different periods:</p>
               <ul className='list-disc space-y-2 pl-6'>
                 <li>
-                  <strong>Session Cookies:</strong> Deleted when you close your
-                  browser
+                  Essential cookies for site operation and authentication.
                 </li>
                 <li>
-                  <strong>Persistent Cookies:</strong> Remain on your device for
-                  a set period (ranging from 24 hours to 2 years, depending on
-                  the cookie)
+                  Cookies used by Lemon Squeezy for payment processing (as
+                  applicable via the integration).
+                </li>
+                <li>
+                  CookieYes consent management cookies to store your consent
+                  state.
+                </li>
+                <li>
+                  Google Analytics to collect anonymised usage data for site
+                  performance and usage insights.
+                </li>
+                <li>
+                  Google Tag Manager to manage and deploy marketing and
+                  analytics tags.
+                </li>
+                <li>
+                  Microsoft Clarity to understand user interactions and improve
+                  UX.
+                </li>
+                <li>
+                  CookieYes (the consent management platform) cookies to
+                  remember consent choices.
+                </li>
+                <li>
+                  Analytics/performance cookies (if enabled) to help us improve
+                  the Site.
+                </li>
+                <li>
+                  Any other cookies set by third-party services (subject to
+                  their policies).
                 </li>
               </ul>
             </section>
 
             <section>
               <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                6. Managing Cookies
+                4. Cookie management and consent
+              </h2>
+              <p>We use CookieYes to manage cookie consent. You may:</p>
+              <ul className='list-disc space-y-2 pl-6'>
+                <li>Accept or decline cookies via the consent banner.</li>
+                <li>
+                  Change your cookie preferences at any time through the
+                  CookieYes settings.
+                </li>
+                <li>
+                  Withdraw consent and delete cookies via browser settings or
+                  the site's cookie settings if available.
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                5. Third-party cookies
               </h2>
               <p>
-                You have the right to accept or reject cookies. Most web
-                browsers automatically accept cookies, but you can modify your
-                browser settings to decline cookies if you prefer.
+                Some cookies are set by third parties (e.g., Lemon Squeezy,
+                analytics providers). Their use is governed by their own privacy
+                policies. We do not control these cookies, but we select
+                providers with appropriate privacy protections.
               </p>
+            </section>
 
-              <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
-                6.1 Browser Settings
-              </h3>
-              <p>
-                You can control cookies through your browser settings. Here are
-                links to instructions for popular browsers:
-              </p>
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                6. Your choices
+              </h2>
               <ul className='list-disc space-y-2 pl-6'>
                 <li>
-                  <a
-                    href='https://support.google.com/chrome/answer/95647'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
-                  >
-                    Google Chrome
-                  </a>
+                  You can adjust cookie preferences in the CookieYes banner or
+                  settings.
                 </li>
                 <li>
-                  <a
-                    href='https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
-                  >
-                    Mozilla Firefox
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://support.apple.com/en-gb/guide/safari/sfri11471/mac'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
-                  >
-                    Safari
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
-                  >
-                    Microsoft Edge
-                  </a>
+                  You can disable cookies in your browser. Note that blocking
+                  cookies may affect the Site's functionality and features.
                 </li>
               </ul>
+            </section>
 
-              <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
-                6.2 Opt-Out Tools
-              </h3>
-              <p>You can also opt out of specific analytics cookies:</p>
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                7. Data security and retention
+              </h2>
+              <p>
+                Cookies and related data are stored on user devices and
+                server-side logs. Retention periods depend on the purpose and
+                provider-specific policies. Server logs may retain IP addresses
+                and access data for a period consistent with security and
+                maintenance needs.
+              </p>
+            </section>
+
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                8. Changes to this Cookie Policy
+              </h2>
+              <p>
+                We may update this policy. The "Last updated" date will reflect
+                changes. If material changes occur, we may provide notice on the
+                Site.
+              </p>
+            </section>
+
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                9. How to contact us
+              </h2>
               <ul className='list-disc space-y-2 pl-6'>
                 <li>
-                  <a
-                    href='https://tools.google.com/dlpage/gaoptout'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
-                  >
-                    Google Analytics Opt-out
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='https://clarity.microsoft.com/opt-out'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
-                  >
-                    Microsoft Clarity Opt-out
-                  </a>
-                </li>
-              </ul>
-
-              <p className='mt-4'>
-                <strong>Note:</strong> Disabling cookies may affect the
-                functionality of the website and your user experience.
-              </p>
-            </section>
-
-            <section>
-              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                7. Do Not Track Signals
-              </h2>
-              <p>
-                Some browsers include a "Do Not Track" (DNT) feature that
-                signals to websites you visit that you do not want to have your
-                online activity tracked. Currently, there is no standard for how
-                DNT signals should be interpreted. As a result, this website
-                does not currently respond to DNT signals.
-              </p>
-            </section>
-
-            <section>
-              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                8. Changes to This Cookie Policy
-              </h2>
-              <p>
-                I may update this Cookie Policy from time to time to reflect
-                changes in technology, legislation, or my practices. I will
-                notify you of any material changes by posting the updated policy
-                on this page and updating the "Last updated" date.
-              </p>
-            </section>
-
-            <section>
-              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                9. Contact Information
-              </h2>
-              <p>
-                If you have questions about this Cookie Policy, please contact:
-              </p>
-              <div className='bg-zinc-50 p-4 rounded-lg mt-4'>
-                <p className='mb-2'>
-                  <strong>David O'Sullivan</strong>
-                </p>
-                <p>
                   Email:{' '}
                   <a
                     href='mailto:support@acfopenicons.com'
@@ -366,8 +214,19 @@ export default function CookiesPage() {
                   >
                     support@acfopenicons.com
                   </a>
-                </p>
-              </div>
+                </li>
+                <li>
+                  Website:{' '}
+                  <a
+                    href='https://acfopenicons.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-600 hover:underline'
+                  >
+                    acfopenicons.com
+                  </a>
+                </li>
+              </ul>
             </section>
           </div>
         </div>
