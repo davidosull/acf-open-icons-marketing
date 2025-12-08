@@ -98,11 +98,9 @@ export default function TermsPage() {
                 distribute the Plugin, except as part of a WordPress site you
                 operate in accordance with these Terms.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   4. Licence Scope and Restrictions
                 </h2>
@@ -145,11 +143,9 @@ export default function TermsPage() {
                 control. You may not disclose or share license keys beyond
                 permitted use as                 defined in the license terms.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   5. Licensing, Purchases, and Payments
                 </h2>
@@ -177,11 +173,9 @@ export default function TermsPage() {
                 or any policy specified at the time of purchase. The Licensor
                 does                 not guarantee refunds beyond those terms.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   6. Support and Updates
                 </h2>
@@ -264,11 +258,9 @@ export default function TermsPage() {
                 suspend or terminate access to the Plugin for the affected
                 license, with any                 applicable remedies under these Terms.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   9. Data and Privacy
                 </h2>
@@ -295,11 +287,9 @@ export default function TermsPage() {
                 is stored and processed for monitoring and licensing purposes as
                 described in the Privacy Policy and related documentation.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   10. Prohibited Conduct
                 </h2>
@@ -332,11 +322,9 @@ export default function TermsPage() {
                 You are responsible for all applicable taxes and duties related
                 to the purchase,                 including VAT where applicable.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   12. Term and Termination
                 </h2>
@@ -357,11 +345,9 @@ export default function TermsPage() {
                 destroy all copies in your possession, except as required to
                 meet legal record-keeping obligations.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   13. Warranties and Disclaimers
                 </h2>
@@ -387,11 +373,9 @@ export default function TermsPage() {
                 The Licensor does not warrant that the Plugin will meet your
                 requirements,                 operate without interruption, or be error-free.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   14. Limitation of Liability
                 </h2>
@@ -413,11 +397,9 @@ export default function TermsPage() {
                 exceed the amount paid for the license in the 12 months
                 preceding the event giving rise to the claim.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   15. Indemnity
                 </h2>
@@ -465,11 +447,9 @@ export default function TermsPage() {
                 is stored and processed for monitoring and licensing purposes as
                 described in the Privacy Policy and related documentation.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   17. Third-Party Software and Services
                 </h2>
@@ -495,11 +475,9 @@ export default function TermsPage() {
                 time. You will be notified of material changes in a manner
                 consistent with the license terms or via the Site.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   19. Governing Law and Disputes
                 </h2>
@@ -512,11 +490,9 @@ export default function TermsPage() {
                 resolved in the courts of England and Wales, unless otherwise
                 required by applicable law.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   20. Miscellaneous
                 </h2>
@@ -534,11 +510,9 @@ export default function TermsPage() {
                 No waiver of any term shall be deemed a further or continuing
                 waiver of such term or any other term.
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   21. Contact Information
                 </h2>
@@ -555,11 +529,9 @@ export default function TermsPage() {
                 </a>
                 .
               </p>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
+            <section>
                 <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
                   Appendix A. Fair Usage Monitoring
                 </h2>
