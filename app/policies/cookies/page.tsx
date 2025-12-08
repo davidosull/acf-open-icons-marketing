@@ -12,11 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function CookiesPage() {
-  const updatedDate = new Date().toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const updatedDate = '8 December 2025';
 
   return (
     <>

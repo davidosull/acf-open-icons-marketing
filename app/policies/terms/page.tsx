@@ -12,11 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  const updatedDate = new Date().toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const updatedDate = '8 December 2025';
 
   return (
     <>
@@ -49,9 +45,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  2. Relationship with ACF, WordPress, and Other Brands
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                2. Relationship with ACF, WordPress, and Other Brands
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 2.1
               </h3>
@@ -77,9 +73,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  3. License Grant
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                3. License Grant
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 3.1
               </h3>
@@ -101,9 +97,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  4. Licence Scope and Restrictions
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                4. Licence Scope and Restrictions
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 4.1
               </h3>
@@ -141,14 +137,14 @@ export default function TermsPage() {
               <p>
                 License keys and activation data are provided for licensing
                 control. You may not disclose or share license keys beyond
-                permitted use as                 defined in the license terms.
+                permitted use as defined in the license terms.
               </p>
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  5. Licensing, Purchases, and Payments
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                5. Licensing, Purchases, and Payments
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 5.1
               </h3>
@@ -171,14 +167,14 @@ export default function TermsPage() {
               <p>
                 Refunds and cancellations follow Lemon Squeezy's refund policy
                 or any policy specified at the time of purchase. The Licensor
-                does                 not guarantee refunds beyond those terms.
+                does not guarantee refunds beyond those terms.
               </p>
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  6. Support and Updates
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                6. Support and Updates
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 6.1
               </h3>
@@ -256,14 +252,14 @@ export default function TermsPage() {
                 In the event of suspected misuse or breach of these Terms, the
                 Licensor reserves the right to investigate and, if necessary,
                 suspend or terminate access to the Plugin for the affected
-                license, with any                 applicable remedies under these Terms.
+                license, with any applicable remedies under these Terms.
               </p>
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  9. Data and Privacy
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                9. Data and Privacy
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 9.1
               </h3>
@@ -290,9 +286,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  10. Prohibited Conduct
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                10. Prohibited Conduct
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 10.1
               </h3>
@@ -304,30 +300,28 @@ export default function TermsPage() {
                 </li>
                 <li>
                   Use the Plugin in a manner that damages, disables, or degrades
-                  the Site, other users, or                   the Licensor's systems.
+                  the Site, other users, or the Licensor's systems.
                 </li>
               </ul>
-              </section>
-            </li>
+            </section>
 
-            <li>
-              <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  11. Fees, Payment, and Taxes
-                </h2>
+            <section>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                11. Fees, Payment, and Taxes
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 11.1
               </h3>
               <p>
                 You are responsible for all applicable taxes and duties related
-                to the purchase,                 including VAT where applicable.
+                to the purchase, including VAT where applicable.
               </p>
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  12. Term and Termination
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                12. Term and Termination
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 12.1
               </h3>
@@ -348,9 +342,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  13. Warranties and Disclaimers
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                13. Warranties and Disclaimers
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 13.1
               </h3>
@@ -371,14 +365,14 @@ export default function TermsPage() {
               </h3>
               <p>
                 The Licensor does not warrant that the Plugin will meet your
-                requirements,                 operate without interruption, or be error-free.
+                requirements, operate without interruption, or be error-free.
               </p>
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  14. Limitation of Liability
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                14. Limitation of Liability
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 14.1
               </h3>
@@ -400,9 +394,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  15. Indemnity
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                15. Indemnity
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 15.1
               </h3>
@@ -450,9 +444,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  17. Third-Party Software and Services
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                17. Third-Party Software and Services
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 17.1
               </h3>
@@ -478,9 +472,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  19. Governing Law and Disputes
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                19. Governing Law and Disputes
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 19.1
               </h3>
@@ -493,9 +487,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  20. Miscellaneous
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                20. Miscellaneous
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 20.1
               </h3>
@@ -513,9 +507,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  21. Contact Information
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                21. Contact Information
+              </h2>
               <h3 className='text-lg font-medium text-zinc-900 mt-6 mb-3'>
                 21.1
               </h3>
@@ -532,9 +526,9 @@ export default function TermsPage() {
             </section>
 
             <section>
-                <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
-                  Appendix A. Fair Usage Monitoring
-                </h2>
+              <h2 className='text-xl font-medium text-zinc-900 mt-8 mb-4'>
+                Appendix A. Fair Usage Monitoring
+              </h2>
               <p>
                 The Plugin monitors license activations and usage to detect
                 potential abuse or misuse. Data collected may include site URL,
