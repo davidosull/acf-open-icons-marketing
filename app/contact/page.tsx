@@ -67,9 +67,34 @@ export default function ContactPage() {
         setFormState('success');
         (e.target as HTMLFormElement).reset();
       } else {
+        let errorMessage = 'Unknown error';
+        try {
+          const errorText = await response.text();
+          if (errorText) {
+            try {
+              const errorData = JSON.parse(errorText);
+              errorMessage = errorData.error || errorText;
+            } catch {
+              // If JSON parsing fails, use the raw text
+              errorMessage = errorText;
+            }
+          }
+        } catch {
+          errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+        }
+
+        console.error('Form submission error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorMessage,
+        });
         setFormState('error');
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission exception:', {
+        error: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
+      });
       setFormState('error');
     }
   };

@@ -61,10 +61,10 @@ function getClientIP(request: Request): string {
 function containsSpamPatterns(text: string): boolean {
   const spamPatterns = [
     /\b(viagra|cialis|casino|poker|lottery|winner|prize|free money)\b/i,
-    /\b(buy now|click here|limited time|act now|urgent)\b/i,
-    /(http|https|www\.)[^\s]{20,}/gi, // Long URLs
-    /[A-Z]{10,}/g, // Excessive caps
-    /[!]{3,}/g, // Multiple exclamation marks
+    /\b(buy now|click here|limited time offer|act now|guaranteed)\b/i,
+    /(http|https|www\.)[^\s]{30,}/gi, // Very long URLs (likely spam)
+    /[A-Z]{15,}/g, // Excessive caps (15+ consecutive)
+    /[!]{5,}/g, // Many exclamation marks (5+)
   ];
 
   return spamPatterns.some((pattern) => pattern.test(text));
@@ -148,34 +148,64 @@ ${data.message}
  * Send form data to n8n webhook
  */
 async function sendToN8N(data: ContactFormData): Promise<void> {
-  const webhookUrl = process.env.N8N_WEBHOOK_URL;
+  let webhookUrl = process.env.N8N_WEBHOOK_URL;
+
+  // Clean up URL - remove double slashes and trailing slashes
+  if (webhookUrl) {
+    webhookUrl = webhookUrl.replace(/([^:]\/)\/+/g, '$1').replace(/\/$/, '');
+  }
+
+  console.log('[Contact API] N8N webhook check:', {
+    webhookUrl: webhookUrl ? 'SET' : 'NOT SET',
+    url: webhookUrl || 'N/A',
+  });
+
   if (!webhookUrl) {
+    console.log('[Contact API] N8N webhook URL not configured, skipping');
     return; // Webhook is optional
   }
 
   try {
+    const payload = {
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
+      timestamp: new Date().toISOString(),
+    };
+
+    console.log('[Contact API] Sending to n8n webhook:', webhookUrl);
+    console.log('[Contact API] Payload:', JSON.stringify(payload, null, 2));
+
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        subject: data.subject,
-        message: data.message,
-        timestamp: new Date().toISOString(),
-      }),
+      body: JSON.stringify(payload),
+    });
+
+    console.log('[Contact API] N8N webhook response:', {
+      status: response.status,
+      statusText: response.statusText,
+      ok: response.ok,
     });
 
     if (!response.ok) {
+      const errorText = await response.text().catch(() => 'Unable to read error');
       console.error(
-        `N8N webhook error: ${response.status} ${response.statusText}`
+        `[Contact API] N8N webhook error: ${response.status} ${response.statusText}`,
+        errorText.substring(0, 200)
       );
+    } else {
+      console.log('[Contact API] N8N webhook sent successfully');
     }
   } catch (error) {
     // Log error but don't fail the request if webhook fails
-    console.error('Failed to send to n8n webhook:', error);
+    console.error('[Contact API] Failed to send to n8n webhook:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
   }
 }
 

@@ -6,4 +6,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Omit these keys from secrets scanning - they're not secrets
+  # CONTACT_FROM_EMAIL and CONTACT_EMAIL are public email addresses
+  # SES_REGION is public AWS region information
+  SECRETS_SCAN_OMIT_KEYS = "CONTACT_FROM_EMAIL,CONTACT_EMAIL,SES_REGION"
 
