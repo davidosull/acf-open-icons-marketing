@@ -1,4 +1,7 @@
-import { Clock } from 'lucide-react';
+'use client';
+
+import * as React from 'react';
+import { Mail, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -7,6 +10,70 @@ import { Section } from '@/components/sections/Section';
 import { SectionHeader } from '@/components/sections/SectionHeading';
 
 export default function ContactPage() {
+  const [formState, setFormState] = React.useState<
+    'idle' | 'submitting' | 'success' | 'error'
+  >('idle');
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState('submitting');
+    setErrors({});
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject') || '',
+      message: formData.get('message'),
+    };
+
+    // Client-side validation
+    const newErrors: Record<string, string> = {};
+    if (!data.name || (data.name as string).trim().length === 0) {
+      newErrors.name = 'Name is required';
+    }
+    if (!data.email || (data.email as string).trim().length === 0) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email as string)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    if (!data.message || (data.message as string).trim().length === 0) {
+      newErrors.message = 'Message is required';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setFormState('error');
+      return;
+    }
+
+    // Submit to API route
+    try {
+      const formData = new FormData();
+      formData.append('name', data.name as string);
+      formData.append('email', data.email as string);
+      if (data.subject) {
+        formData.append('subject', data.subject as string);
+      }
+      formData.append('message', data.message as string);
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        setFormState('success');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setFormState('error');
+      }
+    } catch {
+      setFormState('error');
+    }
+  };
+
   return (
     <>
       <Section background='blue-600/10'>
@@ -36,9 +103,9 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className='text-sm text-zinc-600 text-left'>
-                  We typically respond within 24 hours during business days. For
-                  urgent issues, please include &quot;URGENT&quot; in your
-                  message.
+                  We aim to get back to you within 24 working hours (Mon-Thu
+                  09:00-16:00 GMT). For urgent issues, please include
+                  &quot;URGENT&quot; in your message.
                 </p>
               </CardContent>
             </Card>
@@ -48,8 +115,26 @@ export default function ContactPage() {
           <div className='lg:col-span-2'>
             <Card>
               <CardContent className='p-6 lg:p-8'>
-                <form name='contact' method='POST' data-netlify='true'>
-                  <input type='hidden' name='form-name' value='contact' />
+                <form
+                  name='contact'
+                  method='POST'
+                  action='/api/contact'
+                  onSubmit={handleSubmit}
+                >
+                  {/* Honeypot field - hidden from users, bots will fill it */}
+                  <input
+                    type='text'
+                    name='website'
+                    tabIndex={-1}
+                    autoComplete='off'
+                    style={{
+                      position: 'absolute',
+                      left: '-9999px',
+                      opacity: 0,
+                      pointerEvents: 'none',
+                    }}
+                    aria-hidden='true'
+                  />
                   <div className='space-y-6'>
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                       <div className='space-y-2'>
@@ -59,7 +144,27 @@ export default function ContactPage() {
                         >
                           Name <span className='text-red-500'>*</span>
                         </label>
-                        <Input type='text' name='name' id='name' required />
+                        <Input
+                          type='text'
+                          name='name'
+                          id='name'
+                          required
+                          maxLength={100}
+                          placeholder='John Doe'
+                          aria-invalid={errors.name ? 'true' : 'false'}
+                          aria-describedby={
+                            errors.name ? 'name-error' : undefined
+                          }
+                        />
+                        {errors.name && (
+                          <p
+                            id='name-error'
+                            className='text-sm text-red-600'
+                            role='alert'
+                          >
+                            {errors.name}
+                          </p>
+                        )}
                       </div>
 
                       <div className='space-y-2'>
@@ -69,7 +174,27 @@ export default function ContactPage() {
                         >
                           Email <span className='text-red-500'>*</span>
                         </label>
-                        <Input type='email' name='email' id='email' required />
+                        <Input
+                          type='email'
+                          name='email'
+                          id='email'
+                          required
+                          maxLength={255}
+                          placeholder='your@email.com'
+                          aria-invalid={errors.email ? 'true' : 'false'}
+                          aria-describedby={
+                            errors.email ? 'email-error' : undefined
+                          }
+                        />
+                        {errors.email && (
+                          <p
+                            id='email-error'
+                            className='text-sm text-red-600'
+                            role='alert'
+                          >
+                            {errors.email}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -88,7 +213,20 @@ export default function ContactPage() {
                         name='subject'
                         id='subject'
                         placeholder='e.g., Feature request, Bug report, Question'
+                        aria-invalid={errors.subject ? 'true' : 'false'}
+                        aria-describedby={
+                          errors.subject ? 'subject-error' : undefined
+                        }
                       />
+                      {errors.subject && (
+                        <p
+                          id='subject-error'
+                          className='text-sm text-red-600'
+                          role='alert'
+                        >
+                          {errors.subject}
+                        </p>
+                      )}
                     </div>
 
                     <div className='space-y-2'>
@@ -103,13 +241,61 @@ export default function ContactPage() {
                         id='message'
                         rows={8}
                         required
+                        maxLength={5000}
                         placeholder='Tell us how we can help...'
+                        aria-invalid={errors.message ? 'true' : 'false'}
+                        aria-describedby={
+                          errors.message ? 'message-error' : undefined
+                        }
                       />
+                      {errors.message && (
+                        <p
+                          id='message-error'
+                          className='text-sm text-red-600'
+                          role='alert'
+                        >
+                          {errors.message}
+                        </p>
+                      )}
                     </div>
 
+                    {formState === 'success' && (
+                      <div className='rounded-md bg-green-50 p-4 border border-green-200'>
+                        <div className='flex items-start gap-3'>
+                          <Mail className='h-5 w-5 text-green-600 shrink-0 mt-0.5' />
+                          <div>
+                            <p className='text-sm font-medium text-green-800'>
+                              Thank you! Your message has been sent.
+                            </p>
+                            <p className='text-sm text-green-700 mt-1'>
+                              We aim to get back to you within 24 working hours
+                              (Mon-Thu 09:00-16:00 GMT).
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {formState === 'error' &&
+                      Object.keys(errors).length === 0 && (
+                        <div className='rounded-md bg-red-50 p-4 border border-red-200'>
+                          <p className='text-sm font-medium text-red-800'>
+                            Something went wrong. Please try again or email us
+                            directly.
+                          </p>
+                        </div>
+                      )}
+
                     <div>
-                      <Button type='submit' variant='accent' className='w-full'>
-                        Send Message
+                      <Button
+                        type='submit'
+                        disabled={formState === 'submitting'}
+                        variant='accent'
+                        className='w-full'
+                      >
+                        {formState === 'submitting'
+                          ? 'Sending...'
+                          : 'Send Message'}
                       </Button>
                     </div>
                   </div>
