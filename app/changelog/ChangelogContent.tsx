@@ -81,7 +81,7 @@ export function ChangelogContent({ entries }: ChangelogContentProps) {
                   </Badge>
                 </div>
                 {items.length > 0 ? (
-                  <ul className='list-disc list-outside space-y-2 pl-6'>
+                  <ul className='list-disc list-outside space-y-2 pl-6 text-zinc-600'>
                     {items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}
@@ -92,7 +92,7 @@ export function ChangelogContent({ entries }: ChangelogContentProps) {
                     ))}
                   </ul>
                 ) : (
-                  <p className='text-left'>{sectionName}</p>
+                  <p className='text-left text-zinc-600'>{sectionName}</p>
                 )}
               </div>
             ))}

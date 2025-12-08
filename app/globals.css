@@ -93,6 +93,20 @@ textarea,
 
 /* Site-wide typography styles for content areas */
 .prose {
+  /* Ensure consistent text color - use zinc-600 for body text */
+  @apply text-zinc-600;
+
+  /* Override any darker text colors for all text elements */
+  p,
+  ul,
+  ol,
+  li,
+  strong,
+  em,
+  a:not([class*='text-']) {
+    @apply text-zinc-600;
+  }
+
   /* Paragraph spacing */
   p + p {
     @apply mt-4;

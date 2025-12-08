@@ -29,7 +29,7 @@ export default function CookiesPage() {
       </Section>
 
       <Section maxWidth='4xl'>
-        <div className='prose prose-zinc max-w-none'>
+        <div className='prose max-w-none'>
           <div className='space-y-8'>
             <section>
               <p>
