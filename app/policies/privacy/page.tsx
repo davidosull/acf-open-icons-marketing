@@ -78,6 +78,13 @@ export default function PrivacyPage() {
                   website experience).
                 </li>
               </ul>
+              <p className='mt-4'>
+                <strong>License Activation Data:</strong> When you activate your
+                license, we collect your site URL, IP address, user agent
+                information, and activation timestamp. This data is used for
+                license validation, monitoring for potential abuse or misuse,
+                and ensuring license integrity as described in our Terms of Use.
+              </p>
               <p className='mt-4'>We also collect information automatically:</p>
               <ul className='list-disc space-y-2 pl-6'>
                 <li>
@@ -110,6 +117,10 @@ export default function PrivacyPage() {
                   Process payments via Lemon Squeezy and confirm transactions.
                 </li>
                 <li>Respond to inquiries and manage orders or licenses.</li>
+                <li>
+                  Monitor license activations and usage patterns to detect
+                  potential abuse or misuse and ensure license compliance.
+                </li>
                 <li>Send marketing communications only if you opt in.</li>
                 <li>Improve the Site, diagnose issues, and analyse usage.</li>
               </ul>
@@ -189,6 +200,11 @@ export default function PrivacyPage() {
                 </li>
                 <li>
                   License and payment data retained per Lemon Squeezy terms.
+                </li>
+                <li>
+                  License activation data (site URL, IP address, user agent,
+                  timestamps) retained for monitoring and licensing purposes as
+                  long as needed to ensure license compliance and prevent abuse.
                 </li>
                 <li>
                   Logs/analytics retained for security and improvement purposes.
