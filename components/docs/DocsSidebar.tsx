@@ -168,7 +168,7 @@ export function DocsSidebar() {
                       <Icon
                         className={cn(
                           'h-4 w-4 shrink-0',
-                          isActive ? 'text-blue-600' : 'text-zinc-500'
+                          isActive ? 'text-indigo-600' : 'text-zinc-500'
                         )}
                       />
                       <span>{item.label}</span>
@@ -198,14 +198,14 @@ export function DocsSidebar() {
                 className={cn(
                   'w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors text-left',
                   isActive
-                    ? 'bg-blue-50 text-blue-700'
+                    ? 'bg-indigo-50 text-indigo-700'
                     : 'text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900'
                 )}
               >
                 <Icon
                   className={cn(
                     'h-4 w-4 shrink-0',
-                    isActive ? 'text-blue-600' : 'text-zinc-400'
+                    isActive ? 'text-indigo-600' : 'text-zinc-400'
                   )}
                 />
                 <span>{item.label}</span>

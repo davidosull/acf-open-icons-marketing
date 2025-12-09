@@ -9,6 +9,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/policies/terms`,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: `${SITE_URL}/policies/terms`,
+    siteName: 'ACF Open Icons',
+    title: 'Terms of Use | ACF Open Icons',
+    description: 'Terms of Use for ACF Open Icons WordPress plugin',
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'ACF Open Icons - Terms of Use',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Use | ACF Open Icons',
+    description: 'Terms of Use for ACF Open Icons WordPress plugin',
+    images: [`${SITE_URL}/images/og-image.jpg`],
+  },
 };
 
 export default function TermsPage() {
@@ -16,7 +38,7 @@ export default function TermsPage() {
 
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'
@@ -230,7 +252,7 @@ export default function TermsPage() {
                 described in the{' '}
                 <a
                   href='/policies/privacy'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   Privacy Policy
                 </a>
@@ -268,7 +290,7 @@ export default function TermsPage() {
                 accordance with the{' '}
                 <a
                   href='/policies/privacy'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   Privacy Policy
                 </a>{' '}
@@ -420,14 +442,14 @@ export default function TermsPage() {
                 Your use of the Plugin is subject to the Site's{' '}
                 <a
                   href='/policies/privacy'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   Privacy Policy
                 </a>
                 . If you have concerns about data processing, contact{' '}
                 <a
                   href='mailto:support@acfopenicons.com'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   support@acfopenicons.com
                 </a>
@@ -517,7 +539,7 @@ export default function TermsPage() {
                 If you have questions about these Terms, contact{' '}
                 <a
                   href='mailto:support@acfopenicons.com'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   support@acfopenicons.com
                 </a>
@@ -536,7 +558,7 @@ export default function TermsPage() {
                 secure data repository as described in the{' '}
                 <a
                   href='/policies/privacy'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   Privacy Policy
                 </a>

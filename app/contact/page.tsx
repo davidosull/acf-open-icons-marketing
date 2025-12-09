@@ -101,7 +101,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'
@@ -117,11 +117,11 @@ export default function ContactPage() {
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Helpful Information Cards */}
           <div className='lg:col-span-1 space-y-6'>
-            <Card className='bg-gradient-to-br from-blue-50 to-purple-50 border-blue-200'>
+            <Card className='bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-200'>
               <CardHeader>
                 <div className='flex items-center gap-3 mb-2'>
                   <div className='p-2 bg-white rounded-lg'>
-                    <Clock className='h-5 w-5 text-blue-600' />
+                    <Clock className='h-5 w-5 text-indigo-600' />
                   </div>
                   <CardTitle className='text-left'>Response Time</CardTitle>
                 </div>

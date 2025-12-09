@@ -9,6 +9,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/policies/privacy`,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: `${SITE_URL}/policies/privacy`,
+    siteName: 'ACF Open Icons',
+    title: 'Privacy Policy | ACF Open Icons',
+    description: 'Privacy Policy for ACF Open Icons WordPress plugin',
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'ACF Open Icons - Privacy Policy',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy | ACF Open Icons',
+    description: 'Privacy Policy for ACF Open Icons WordPress plugin',
+    images: [`${SITE_URL}/images/og-image.jpg`],
+  },
 };
 
 export default function PrivacyPage() {
@@ -16,7 +38,7 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'
@@ -37,7 +59,7 @@ export default function PrivacyPage() {
                   href='https://acfopenicons.com'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   acfopenicons.com
                 </a>{' '}
@@ -45,7 +67,7 @@ export default function PrivacyPage() {
                 If you have questions about this policy, please contact{' '}
                 <a
                   href='mailto:support@acfopenicons.com'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   support@acfopenicons.com
                 </a>
@@ -234,7 +256,7 @@ export default function PrivacyPage() {
                 To exercise your rights, contact{' '}
                 <a
                   href='mailto:support@acfopenicons.com'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   support@acfopenicons.com
                 </a>
@@ -250,7 +272,7 @@ export default function PrivacyPage() {
                 For details, see our{' '}
                 <a
                   href='/policies/cookies'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   Cookie Policy
                 </a>
@@ -288,7 +310,7 @@ export default function PrivacyPage() {
                   Email:{' '}
                   <a
                     href='mailto:support@acfopenicons.com'
-                    className='text-blue-600 hover:underline'
+                    className='text-indigo-600 hover:underline'
                   >
                     support@acfopenicons.com
                   </a>
@@ -299,7 +321,7 @@ export default function PrivacyPage() {
                     href='https://acfopenicons.com'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
+                    className='text-indigo-600 hover:underline'
                   >
                     acfopenicons.com
                   </a>

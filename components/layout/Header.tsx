@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -57,10 +58,15 @@ export function Header() {
         aria-label='Global'
       >
         <div className='flex lg:flex-1'>
-          <Link href='/' className='-m-1.5 p-1.5'>
-            <span className='text-xl font-medium text-zinc-900'>
-              ACF Open Icons
-            </span>
+          <Link href='/' className='-m-1.5 p-1.5 flex items-center'>
+            <Image
+              src='/brand/logo.svg'
+              alt='ACF Open Icons'
+              width={200}
+              height={39}
+              className='h-8 w-auto'
+              priority
+            />
           </Link>
         </div>
         <div className='flex items-center gap-3 lg:hidden'>
@@ -92,8 +98,8 @@ export function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                'text-sm font-medium leading-6 transition-colors hover:text-blue-600',
-                pathname === item.href ? 'text-blue-600' : 'text-zinc-900'
+                'text-sm font-medium leading-6 transition-colors hover:text-indigo-600',
+                pathname === item.href ? 'text-indigo-600' : 'text-zinc-900'
               )}
             >
               {item.name}
@@ -129,7 +135,7 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   'block rounded-lg px-3 py-2 text-base font-medium leading-7 transition-colors hover:bg-zinc-50',
-                  pathname === item.href ? 'text-blue-600' : 'text-zinc-900'
+                  pathname === item.href ? 'text-indigo-600' : 'text-zinc-900'
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >

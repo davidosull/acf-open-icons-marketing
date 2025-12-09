@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { NAVIGATION } from '@/lib/constants';
 
 export function Footer() {
@@ -8,9 +9,15 @@ export function Footer() {
         <div className='lg:grid lg:grid-cols-3 lg:gap-8'>
           <div className='space-y-8 lg:col-span-2'>
             <div>
-              <h3 className='text-lg font-medium text-zinc-900'>
-                ACF Open Icons
-              </h3>
+              <Link href='/' className='inline-block'>
+                <Image
+                  src='/brand/logo.svg'
+                  alt='ACF Open Icons'
+                  width={200}
+                  height={39}
+                  className='h-8 w-auto'
+                />
+              </Link>
               <p className='mt-4 text-sm text-zinc-600 max-w-sm'>
                 A better icon picker for Advanced Custom Fields. Easy, intuitive
                 icon selection for WordPress developers.
@@ -19,9 +26,7 @@ export function Footer() {
           </div>
           <div className='mt-16 grid grid-cols-2 gap-8 lg:col-span-1 lg:mt-0'>
             <div>
-              <h3 className='text-sm font-medium text-zinc-900'>
-                Navigation
-              </h3>
+              <h3 className='text-sm font-medium text-zinc-900'>Navigation</h3>
               <ul role='list' className='mt-6 space-y-4'>
                 {NAVIGATION.main.map((item) => (
                   <li key={item.name}>
@@ -36,9 +41,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className='text-sm font-medium text-zinc-900'>
-                Legal
-              </h3>
+              <h3 className='text-sm font-medium text-zinc-900'>Legal</h3>
               <ul role='list' className='mt-6 space-y-4'>
                 {NAVIGATION.legal.map((item) => (
                   <li key={item.name}>

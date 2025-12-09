@@ -18,11 +18,11 @@ import { GradientText } from '@/components/ui/gradient-text';
 
 export function InteractiveCodePlayground() {
   const [size, setSize] = React.useState([48]);
-  const [color, setColor] = React.useState('#2563eb');
+  const [color, setColor] = React.useState('#4f46e5');
   const [echo, setEcho] = React.useState(true);
   const [className, setClassName] = React.useState('');
 
-  const hasColorOverride = color !== '#2563eb';
+  const hasColorOverride = color !== '#4f46e5';
   const iconSize = size[0];
   const iconColor = hasColorOverride ? color : 'currentColor';
 
@@ -68,7 +68,7 @@ acf_open_icon($icon_field, ${paramsString});`;
 
   const resetOptions = () => {
     setSize([48]);
-    setColor('#2563eb');
+    setColor('#4f46e5');
     setEcho(true);
     setClassName('');
   };
@@ -137,7 +137,7 @@ acf_open_icon($icon_field, ${paramsString});`;
                   type='text'
                   value={color}
                   onChange={(e) => setColor(e.target.value)}
-                  placeholder='#2563eb'
+                  placeholder='#4f46e5'
                   className='flex-1 h-8 text-xs font-mono'
                 />
               </div>
@@ -221,7 +221,7 @@ acf_open_icon($icon_field, ${paramsString});`;
               <CheckCircle
                 size={iconSize}
                 strokeWidth={2}
-                className={hasColorOverride ? '' : 'text-blue-600'}
+                className={hasColorOverride ? '' : 'text-indigo-600'}
                 style={hasColorOverride ? { color: iconColor } : undefined}
               />
             </div>

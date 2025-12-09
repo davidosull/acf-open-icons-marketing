@@ -47,7 +47,7 @@ export function FeatureCard({
       </div>
       <CardHeader className='space-y-0'>
         <div className='flex items-start justify-between'>
-          <Icon className='h-6 w-6 text-blue-600' aria-hidden='true' />
+          <Icon className='h-6 w-6 text-indigo-600' aria-hidden='true' />
         </div>
         <CardTitle>{name}</CardTitle>
       </CardHeader>

@@ -22,7 +22,7 @@ export function Pricing() {
   };
 
   return (
-    <Section id='pricing' className='scroll-mt-24' background='blue-600/10'>
+    <Section id='pricing' className='scroll-mt-24' background='indigo-600/10'>
       <div className='mx-auto max-w-4xl text-center'>
         <SectionHeader
           subtitle='Pricing'

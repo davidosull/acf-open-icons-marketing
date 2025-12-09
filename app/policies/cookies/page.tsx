@@ -9,6 +9,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/policies/cookies`,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: `${SITE_URL}/policies/cookies`,
+    siteName: 'ACF Open Icons',
+    title: 'Cookie Policy | ACF Open Icons',
+    description: 'Cookie Policy for ACF Open Icons website',
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'ACF Open Icons - Cookie Policy',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cookie Policy | ACF Open Icons',
+    description: 'Cookie Policy for ACF Open Icons website',
+    images: [`${SITE_URL}/images/og-image.jpg`],
+  },
 };
 
 export default function CookiesPage() {
@@ -16,7 +38,7 @@ export default function CookiesPage() {
 
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'
@@ -37,7 +59,7 @@ export default function CookiesPage() {
                   href='https://acfopenicons.com'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-blue-600 hover:underline'
+                  className='text-indigo-600 hover:underline'
                 >
                   acfopenicons.com
                 </a>{' '}
@@ -206,7 +228,7 @@ export default function CookiesPage() {
                   Email:{' '}
                   <a
                     href='mailto:support@acfopenicons.com'
-                    className='text-blue-600 hover:underline'
+                    className='text-indigo-600 hover:underline'
                   >
                     support@acfopenicons.com
                   </a>
@@ -217,7 +239,7 @@ export default function CookiesPage() {
                     href='https://acfopenicons.com'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-blue-600 hover:underline'
+                    className='text-indigo-600 hover:underline'
                   >
                     acfopenicons.com
                   </a>

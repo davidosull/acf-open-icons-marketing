@@ -5,7 +5,7 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  background?: 'white' | 'zinc-50' | 'gradient-white-zinc' | 'blue-600/10';
+  background?: 'white' | 'zinc-50' | 'gradient-white-zinc' | 'indigo-600/10';
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl' | '6xl' | '7xl';
   padding?: 'sm' | 'md' | 'lg';
 }
@@ -14,7 +14,7 @@ const backgroundClasses = {
   white: 'bg-white',
   'zinc-50': 'bg-zinc-50',
   'gradient-white-zinc': 'bg-gradient-to-b from-white to-zinc-50',
-  'blue-600/10': 'bg-blue-600/10',
+  'indigo-600/10': 'bg-indigo-600/10',
 };
 
 const maxWidthClasses = {

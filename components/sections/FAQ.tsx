@@ -79,7 +79,7 @@ export function FAQ() {
             what you&apos;re looking for?{' '}
             <a
               href='/contact/'
-              className='font-medium text-blue-600 hover:text-blue-700 underline'
+              className='font-medium text-indigo-600 hover:text-indigo-700 underline'
             >
               Get in touch
             </a>{' '}

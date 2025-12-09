@@ -32,7 +32,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
       warning: 'bg-yellow-100 text-yellow-800 border-yellow-200',
       error: 'bg-red-100 text-red-800 border-red-200',
       white: 'bg-white text-zinc-900 border-zinc-200',
-      blue: 'bg-blue-600 text-white border-blue-600',
+      blue: 'bg-indigo-600 text-white border-indigo-600',
     };
 
     const sizeStyles = {

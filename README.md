@@ -14,17 +14,19 @@ Marketing website for the ACF Open Icons WordPress plugin, built with Next.js, R
 
 ### Prerequisites
 
-- Node.js 20+ 
+- Node.js 20+
 - npm or yarn
 
 ### Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -72,13 +74,15 @@ The default domain is set to `acfopenicons.com` in `lib/constants.ts`. Update th
 ### Screenshots
 
 Add your screenshots to `public/images/`:
+
 - `before.png` - Screenshot of ACF's default icon picker
 - `after.png` - Screenshot of ACF Open Icons picker
-- `video-poster.jpg` - Poster image for the hero video
+- `video-poster.webp` - Poster image for the hero video
 
 ### Video
 
 Add your demo video to `public/video/`:
+
 - `demo.mp4` - Hero section demo video
 
 ## Deployment
@@ -98,6 +102,7 @@ npm run build
 ### Environment Variables
 
 For production, set:
+
 - `NEXT_PUBLIC_USE_TEST_PRODUCTS=false` (to use live Lemon Squeezy products)
 
 ## Features

@@ -60,7 +60,7 @@ export function PricingCard({
     <Card
       className={cn(
         'flex flex-col transition-all h-full',
-        isActive ? 'ring-2 ring-blue-600 shadow-lg' : 'opacity-75',
+        isActive ? 'ring-2 ring-indigo-600 shadow-lg' : 'opacity-75',
         className
       )}
     >
@@ -114,7 +114,7 @@ export function PricingCard({
           {features.map((feature, index) => (
             <li key={index} className='flex gap-x-3'>
               <Check
-                className='h-5 w-5 flex-none text-blue-600 mt-0.5'
+                className='h-5 w-5 flex-none text-indigo-600 mt-0.5'
                 aria-hidden='true'
               />
               <span className='text-sm leading-6 text-zinc-600'>

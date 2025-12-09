@@ -12,6 +12,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/changelog`,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: `${SITE_URL}/changelog`,
+    siteName: 'ACF Open Icons',
+    title: 'Changelog | ACF Open Icons',
+    description: 'Version history and release notes for ACF Open Icons',
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'ACF Open Icons - Changelog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Changelog | ACF Open Icons',
+    description: 'Version history and release notes for ACF Open Icons',
+    images: [`${SITE_URL}/images/og-image.jpg`],
+  },
 };
 
 // Force dynamic rendering to avoid build-time fetch errors
@@ -26,10 +48,17 @@ export default async function ChangelogPage() {
     // This avoids network issues in serverless environments
     console.log('[Changelog Page] Fetching changelog data');
     changelogData = await getChangelogData();
-    console.log('[Changelog Page] Successfully loaded changelog with', changelogData?.entries?.length || 0, 'entries');
+    console.log(
+      '[Changelog Page] Successfully loaded changelog with',
+      changelogData?.entries?.length || 0,
+      'entries'
+    );
   } catch (err) {
     // Handle errors gracefully - don't fail the build
-    console.error('[Changelog Page] Unexpected error:', err instanceof Error ? err.message : String(err));
+    console.error(
+      '[Changelog Page] Unexpected error:',
+      err instanceof Error ? err.message : String(err)
+    );
     if (err instanceof Error && err.stack) {
       console.error('[Changelog Page] Stack:', err.stack);
     }
@@ -38,7 +67,7 @@ export default async function ChangelogPage() {
 
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'

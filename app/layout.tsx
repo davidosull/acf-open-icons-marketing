@@ -83,6 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const isProduction = process.env.NODE_ENV === 'production';
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -111,10 +112,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang='en-GB'>
+    <html lang='en-GB' suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
-        {gtmId && (
+        {/* Google Tag Manager - Only load in production */}
+        {isProduction && gtmId && (
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -134,8 +135,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel='dns-prefetch' href='https://assets.lemonsqueezy.com' />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        {/* Google Tag Manager (noscript) */}
-        {gtmId && (
+        {/* Google Tag Manager (noscript) - Only load in production */}
+        {isProduction && gtmId && (
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}

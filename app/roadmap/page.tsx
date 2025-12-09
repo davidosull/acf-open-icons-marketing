@@ -13,6 +13,30 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/roadmap`,
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: `${SITE_URL}/roadmap`,
+    siteName: 'ACF Open Icons',
+    title: 'Roadmap | ACF Open Icons',
+    description:
+      'Upcoming features and improvements planned for ACF Open Icons',
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'ACF Open Icons - Roadmap',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roadmap | ACF Open Icons',
+    description:
+      'Upcoming features and improvements planned for ACF Open Icons',
+    images: [`${SITE_URL}/images/og-image.jpg`],
+  },
 };
 
 interface RoadmapItem {
@@ -65,7 +89,7 @@ const statusConfig = {
   'in-progress': {
     icon: Clock,
     label: 'In Progress',
-    color: 'text-blue-600',
+    color: 'text-indigo-600',
   },
   planned: {
     icon: Circle,
@@ -109,7 +133,7 @@ export default function RoadmapPage() {
 
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'
@@ -127,7 +151,7 @@ export default function RoadmapPage() {
           {inProgressItems.length > 0 && (
             <div>
               <div className='flex items-center gap-3 mb-6'>
-                <Clock className='h-6 w-6 text-blue-600' />
+                <Clock className='h-6 w-6 text-indigo-600' />
                 <h2 className='text-2xl font-medium text-zinc-900'>
                   In Progress
                 </h2>

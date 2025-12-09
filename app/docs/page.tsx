@@ -91,7 +91,7 @@ acf_open_icon($icon_field, [
 export default function DocsPage() {
   return (
     <>
-      <Section background='blue-600/10'>
+      <Section background='indigo-600/10'>
         <div className='mx-auto max-w-2xl text-center'>
           <SectionHeader
             className='!mb-0'
@@ -133,7 +133,7 @@ export default function DocsPage() {
               {/* Installation */}
               <div id='installation' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
-                  <Download className='h-6 w-6 text-blue-600' />
+                  <Download className='h-6 w-6 text-indigo-600' />
                   <h2 className='text-xl font-medium text-zinc-900'>
                     Installation
                   </h2>
@@ -143,7 +143,7 @@ export default function DocsPage() {
                     <Card key={step.step}>
                       <CardHeader>
                         <div className='flex items-center gap-3'>
-                          <div className='flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-medium text-sm'>
+                          <div className='flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 font-medium text-sm'>
                             {step.step}
                           </div>
                           <CardTitle>{step.title}</CardTitle>
@@ -160,7 +160,7 @@ export default function DocsPage() {
               {/* Configuration */}
               <div id='configuration' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
-                  <Settings className='h-6 w-6 text-blue-600' />
+                  <Settings className='h-6 w-6 text-indigo-600' />
                   <h2 className='text-xl font-medium text-zinc-900'>
                     Configuration
                   </h2>
@@ -219,7 +219,7 @@ export default function DocsPage() {
                   <Card>
                     <CardHeader>
                       <div className='flex items-center gap-3'>
-                        <Palette className='h-5 w-5 text-blue-600' />
+                        <Palette className='h-5 w-5 text-indigo-600' />
                         <CardTitle>Color Palette</CardTitle>
                       </div>
                     </CardHeader>
@@ -248,7 +248,7 @@ export default function DocsPage() {
               {/* Usage */}
               <div id='usage' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
-                  <Code className='h-6 w-6 text-blue-600' />
+                  <Code className='h-6 w-6 text-indigo-600' />
                   <h2 className='text-xl font-medium text-zinc-900'>Usage</h2>
                 </div>
                 <div className='space-y-8'>
@@ -399,7 +399,7 @@ export default function DocsPage() {
               {/* Icon Migration */}
               <div id='migration' className='scroll-mt-24'>
                 <div className='flex items-center gap-3 mb-6'>
-                  <RefreshCw className='h-6 w-6 text-blue-600' />
+                  <RefreshCw className='h-6 w-6 text-indigo-600' />
                   <h2 className='text-xl font-medium text-zinc-900'>
                     Icon Migration
                   </h2>
