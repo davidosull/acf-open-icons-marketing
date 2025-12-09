@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Library, Search, Zap, Palette, RefreshCw, Shield } from 'lucide-react';
+import { Library, Search, Zap, Palette, RefreshCw, Key } from 'lucide-react';
 import { FeatureCard } from '@/components/ui/feature-card';
 import { ImageModal, ImageItem } from '@/components/ui/image-modal';
 import { Section } from './Section';
@@ -57,13 +57,13 @@ const features: FeatureItem[] = [
     imageAlt: 'Icon migration tool interface',
   },
   {
-    name: 'Secure Updates',
-    title: 'Secure Updates',
+    name: 'Simple Licensing',
+    title: 'Simple Licensing',
     description:
-      'Automatic updates delivered securely with license validation and version control.',
-    icon: Shield,
+      'One license tier with unlimited activations. Choose annual or monthly billing—simple, straightforward licensing.',
+    icon: Key,
     imagePath: '/images/features/updates.webp',
-    imageAlt: 'Update management interface',
+    imageAlt: 'License management interface',
   },
 ];
 

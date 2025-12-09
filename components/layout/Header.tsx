@@ -64,7 +64,7 @@ export function Header() {
               alt='ACF Open Icons'
               width={200}
               height={39}
-              className='h-8 w-auto'
+              className='h-7 sm:h-8 w-auto'
               priority
             />
           </Link>

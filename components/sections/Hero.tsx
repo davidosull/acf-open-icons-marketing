@@ -61,8 +61,8 @@ export function Hero({ bottomPadding = 'none' }: HeroProps = {}) {
         <BodyLarge className='mt-6 mx-auto max-w-3xl'>
           Replace ACF&apos;s limited icon picker with a powerful, intuitive
           solution. Access thousands of professional icons from Lucide, Tabler,
-          and Heroicons—all seamlessly integrated into your WordPress workflow.
-          Say goodbye to managing icons in your media library.
+          and Heroicons - all seamlessly integrated into your WordPress
+          workflow. Say goodbye to managing icons in your media library.
         </BodyLarge>
         <div className='mt-10 flex items-center justify-center gap-x-3'>
           <Button asChild variant='accent' size='lg'>

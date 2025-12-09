@@ -15,7 +15,7 @@ export function Footer() {
                   alt='ACF Open Icons'
                   width={200}
                   height={39}
-                  className='h-8 w-auto'
+                  className='h-7 sm:h-8 w-auto'
                 />
               </Link>
               <p className='mt-4 text-sm text-zinc-600 max-w-sm'>

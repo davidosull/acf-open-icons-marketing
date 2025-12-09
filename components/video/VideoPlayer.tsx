@@ -82,18 +82,18 @@ export const VideoPlayer = React.forwardRef<VideoPlayerRef, VideoPlayerProps>(
       },
     }));
 
-    // Calculate aspect ratio: 1576/980 = 1.608
-    const aspectRatio = 1576 / 980;
+    // Poster dimensions: 1576x980 (actual image file dimensions)
+    // Use CSS fraction format for precise aspect ratio
+    const aspectRatio = '1576 / 980';
 
     return (
       <div
         className={cn(
           'relative w-full overflow-hidden rounded-xl bg-zinc-900',
-          'min-h-[300px]',
           className
         )}
         style={{
-          aspectRatio: aspectRatio.toString(),
+          aspectRatio,
         }}
       >
         {shouldLoad && (
@@ -101,7 +101,7 @@ export const VideoPlayer = React.forwardRef<VideoPlayerRef, VideoPlayerProps>(
             ref={videoRef}
             src={src}
             poster={poster}
-            className='h-full w-full object-cover'
+            className='h-full w-full object-contain'
             onLoadedData={handleLoadedData}
             onEnded={handleEnded}
             onPlay={() => {
@@ -120,7 +120,7 @@ export const VideoPlayer = React.forwardRef<VideoPlayerRef, VideoPlayerProps>(
                 src={poster}
                 alt='Video thumbnail'
                 fill
-                className='pointer-events-none object-cover'
+                className='pointer-events-none object-contain'
                 priority
                 fetchPriority='high'
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px'
