@@ -53,7 +53,7 @@ export function Hero({ bottomPadding = 'none' }: HeroProps = {}) {
           }}
         />
       </div>
-      <div className='text-center'>
+      <div className='md:text-center'>
         <H1 className='mx-auto max-w-2xl'>
           A Better Icon Picker for{' '}
           <GradientText>Advanced Custom Fields</GradientText>
