@@ -17,7 +17,7 @@ export function PricingToggle({
   return (
     <div
       className={cn(
-        'mt-12 mb-4 sm:mb-0 flex flex-col items-center md:justify-center gap-3 relative',
+        'mt-12 mb-4 sm:mb-0 flex flex-col items-start md:items-center gap-3 relative',
         className
       )}
     >
