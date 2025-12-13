@@ -64,7 +64,7 @@ export function Hero({ bottomPadding = 'none' }: HeroProps = {}) {
           and Heroicons - all seamlessly integrated into your WordPress
           workflow. Say goodbye to managing icons in your media library.
         </BodyLarge>
-        <div className='mt-10 flex items-center justify-center gap-x-3'>
+        <div className='mt-10 flex md:items-center md:justify-center gap-x-3'>
           <Button asChild variant='accent' size='lg'>
             <Link href='#pricing'>Buy Now</Link>
           </Button>

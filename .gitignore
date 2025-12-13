@@ -47,3 +47,6 @@ plans/
 
 # Local Netlify folder
 .netlify
+
+# LinkedIn posts
+linkedin-posts.md
